@@ -6,20 +6,16 @@ class AddTodo extends Component {
     super(props);
   }
 
-  onShowList() {
-    dispatch(addTodo());
-}
-
   render() {
+    const { dispatch, onClickAddTodo, onSetText, todoText } = this.props;    
     return (
       <View>
         <TextInput
-          onChangeText={ }
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          value={"Push"}
+          onChangeText={ (text) => onSetText(text) }
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}          
         />
         <Button
-          onPress={onShowList()}
+          onPress={() => onClickAddTodo(todoText)}
           title="Push me!"
         />
       </View>
@@ -27,6 +23,4 @@ class AddTodo extends Component {
   }
 }
 
-const AddTodoToList = connect()(AddTodo);
-
-export default AddTodoToList;
+export default AddTodo;

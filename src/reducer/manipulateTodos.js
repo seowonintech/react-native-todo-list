@@ -1,4 +1,4 @@
-import * as action from '../action/action';
+import * as actions from '../action/action';
 
 let initState=
 [
@@ -12,8 +12,9 @@ const manipulateTodos = (state = initState, action) => {
     // the action parameter
     // should be same as the returned values from action functions
     // such as addTodo, deleteTodo and toggleTodo except for type
-    // ** actions param is action function itself **
-    case action.ADD_TODO:
+    // ** actions param is action function itself **    
+    case actions.ADD_TODO:
+    console.warn('[Kang] action.text : ' + action.text);
       return [
         ...state,
         {
@@ -24,11 +25,11 @@ const manipulateTodos = (state = initState, action) => {
         }
       ];
 
-    case action.DELETE_TODO:
+    case actions.DELETE_TODO:
       return state.filter(t => t.id !== action.id);
 
     // complete or not
-    case action.TOGGLE_TODO:
+    case actions.TOGGLE_TODO:
       return state.map(t => {
         if (t.id === action.id){
           return {

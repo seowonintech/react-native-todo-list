@@ -16,3 +16,8 @@ export const toggleTodo = (id) => ({
     type: action.TOGGLE_TODO,
     id
 })
+
+export const setTodoText = (text) => ({
+    type: action.SET_TODO_TEXT,
+    text
+})

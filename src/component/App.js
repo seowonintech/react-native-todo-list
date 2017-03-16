@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import TodoList from '../container/TodoList';
-import AddTodoToList from '../component/AddTodo';
+import TrackTodoText from '../container/TrackTodoText';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <View>
-        <AddTodo />
+        <TrackTodoText />
         <TodoList />
       </View>
     );
