@@ -19,7 +19,7 @@ const todo = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO:
             return {
-                id: action.id,
+                id: action.id++,
                 text: action.text
             };
         case ActionTypes.REMOVE_TODO:

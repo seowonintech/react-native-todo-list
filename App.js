@@ -6,6 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // Custom
 import TodoList from './src/containers/TodoList';
+import AddTodo from './src/containers/AddTodo';
 import reducers from './src/reducers';
 
 const store = createStore(reducers);
@@ -15,10 +16,8 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
           <View style={styles.container}>
-              {/*<Text>
-                  "asdf"
-              </Text>*/}
               <TodoList />
+              <AddTodo />
           </View>
       </Provider>
     );
