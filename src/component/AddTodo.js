@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { Text, View, TextInput, Button } from 'react-native';
 
 class AddTodo extends Component {
   constructor(props) {
@@ -7,15 +7,19 @@ class AddTodo extends Component {
   }
 
   onShowList() {
-    console.log("aaaa");
-  }
+    dispatch(addTodo());
+}
 
   render() {
     return (
       <View>
-        <TextInput>AddTodo</TextInput>
+        <TextInput
+          onChangeText={ }
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          value={"Push"}
+        />
         <Button
-          onPress={onShowList}
+          onPress={onShowList()}
           title="Push me!"
         />
       </View>
@@ -23,4 +27,6 @@ class AddTodo extends Component {
   }
 }
 
-export default AddTodo;
+const AddTodoToList = connect()(AddTodo);
+
+export default AddTodoToList;
