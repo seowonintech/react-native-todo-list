@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import ShowTodoList from '../component/ShowTodoList'
 
 const mapStateToProps = (state) => ({
-  todos: state.todos
+  todos: state.manipulateTodos
 });
 
 const TodoList = connect(

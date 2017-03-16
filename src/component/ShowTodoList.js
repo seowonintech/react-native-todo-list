@@ -6,9 +6,9 @@ class ShowTodoList extends Component {
     super(props);
   }
 
-  showList() {
-    return this.todos.map(todo => (
-      <Text>
+  showList(todos) {
+    return todos.map((todo, index) => (
+      <Text key={index}>
         {todo.text}
       </Text>
     ));
@@ -18,8 +18,7 @@ class ShowTodoList extends Component {
     const { todos } = this.props;
     return (
       <View>
-        {JSON.stringify(todos[0])}
-        {/*{this.showList()}*/}
+        {this.showList(todos)}
       </View>
     );
   }

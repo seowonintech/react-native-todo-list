@@ -3,11 +3,11 @@ import * as action from '../action/action';
 let initState=
 [
   {id:1, text:"aaaa"},
-  {id:1, text:"bbbb"},
-  {id:1, text:"cccc"},
+  {id:2, text:"bbbb"},
+  {id:3, text:"cccc"}
 ]
 
-const manipulateTodos = (state = [], action) => {
+const manipulateTodos = (state = initState, action) => {
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
