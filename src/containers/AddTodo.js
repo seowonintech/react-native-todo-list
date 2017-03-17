@@ -5,28 +5,26 @@ import { View, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
 // Custom
 import * as ActionTypes from '../actions/ActionTypes';
-import { addTodo } from '../actions';
+import { addTodo, initTodo, modifyTodo } from '../actions';
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText }) => {
     let value;
     let textInput;
 
     return(
         <View>
             <TextInput
-                style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={text => value = text}
+                style={{width: 300, height: 40, borderColor: 'gray', borderWidth: 1}}
+                onChangeText={text => handleChangeText(text)}
                 ref={node => {
                     textInput = node
                 }}
-                value={value}
+                value={textInputValue}
             />
             <Button
                 title="Add"
                 onPress={ () => {
-                    console.warn('[TS_Warning] value : ' + value);
-                    dispatch(addTodo(value));
-                    this.value = ' ';
+                    onClickAddButton(textInputValue);
                 }}
             />
         </View>
@@ -35,14 +33,20 @@ let AddTodo = ({ dispatch }) => {
 
 // TODO: 뭔가 redux 를 이용해서 textinput value 컨트롤
 const mapStateToProps = (state) => ({
-
+    textInputValue: state.mainState.textInput
 });
 
-// const dispatchToProps = (dispatch) => ({
-//     onClickAddButton: dispatch(addTodo('test'))
-// });
+const dispatchToProps = (dispatch, ownProps) => ({
+    onClickAddButton: (text) => {
+        dispatch(addTodo(text));
+        dispatch(initTodo());
+    },
+    handleChangeText: (text) => {
+        dispatch(modifyTodo(text));
+    }
+});
 
-// AddTodo = connect(undefined, dispatchToProps)(AddTodo);
-AddTodo = connect()(AddTodo);
+AddTodo = connect(mapStateToProps, dispatchToProps)(AddTodo);
+// AddTodo = connect()(AddTodo);
 
 export default AddTodo;
