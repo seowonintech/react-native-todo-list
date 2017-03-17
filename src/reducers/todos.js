@@ -22,6 +22,11 @@ const todo = (state = {}, action) => {
                 id: action.id++,
                 text: action.text
             };
+        case ActionTypes.MODIFY_TODO:
+            return {
+                id: action.id,
+                text: action.text
+            };
         case ActionTypes.REMOVE_TODO:
             return {
                 id: action.id
@@ -41,7 +46,20 @@ const todos = (state = sampleTodos, action) => {
                 //     id: action.id,
                 //     text: action.text
                 // }
-            ]
+            ];
+        case ActionTypes.MODIFY_TODO:
+        {
+            return state.map((val) => {
+                if ( val.id === action.id ) {
+                    return {
+                        id: action.id,
+                        text: action.text
+                    }
+                }
+                return val;
+            });
+        }
+            
         case ActionTypes.REMOVE_TODO:
             return filter(val => {
                 !val.id === action.id

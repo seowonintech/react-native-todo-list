@@ -6,8 +6,14 @@ export const initTodo = () => ({
     type: ActionTypes.INIT_TODO
 });
 
-export const modifyTodo = (text) => ({
+export const setText = (text) => ({
+    type: ActionTypes.SET_TEXT,
+    text
+});
+
+export const modifyTodo = (id, text) => ({
     type: ActionTypes.MODIFY_TODO,
+    id,
     text
 });
 

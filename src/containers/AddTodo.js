@@ -5,32 +5,26 @@ import { View, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
 // Custom
 import * as ActionTypes from '../actions/ActionTypes';
-import { addTodo, initTodo, modifyTodo } from '../actions';
+import { addTodo, initTodo, setText } from '../actions';
 
-let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText, onInitText }) => {
-    let value;
-    let textInput;
+let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText, onInitText }) => (
+    <View>
+        <TextInput
+            style={{width: 300, height: 40, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={text => handleChangeText(text)}
+            value={textInputValue}
+        />
+        <Button
+            title="Add"
+            onPress={ () => {
+                if ( !textInputValue.trim() ) return;
+                onClickAddButton(textInputValue);
+                onInitText();
+            }}
+        />
+    </View>
+);
 
-    return(
-        <View>
-            <TextInput
-                style={{width: 300, height: 40, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={text => handleChangeText(text)}
-                ref={node => {
-                    textInput = node
-                }}
-                value={textInputValue}
-            />
-            <Button
-                title="Add"
-                onPress={ () => {
-                    onClickAddButton(textInputValue);
-                    onInitText();
-                }}
-            />
-        </View>
-    );
-}
 
 // TODO: 뭔가 redux 를 이용해서 textinput value 컨트롤
 const mapStateToProps = (state) => ({
@@ -45,7 +39,7 @@ const dispatchToProps = (dispatch, ownProps) => ({
         dispatch(addTodo(text));
     },
     handleChangeText: (text) => {
-        dispatch(modifyTodo(text));
+        dispatch(setText(text));
     }
 });
 

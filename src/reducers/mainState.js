@@ -10,7 +10,7 @@ const mainState = (state = initState, action) => {
             return {
                 textInput: ''
             };
-        case ActionTypes.MODIFY_TODO:
+        case ActionTypes.SET_TEXT:
             return {
                 textInput: action.text
             };

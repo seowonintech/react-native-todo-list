@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 
-const Todo = ({ todos }) => (
+const Todo = ({ todos, handleChangeText }) => (
     <View>
         {todos.map((todo, index) => (
-            <Text
-                key={index}>
-                {todo.text}
-            </Text>
+            <TextInput
+                style={{width: 300, height: 40, borderColor: 'gray', borderWidth: 1}}
+                key={index}
+                value={todo.text}
+                onChangeText={text => {
+                    handleChangeText(index, text);
+                }}
+            />
         ))}
     </View>
 );
