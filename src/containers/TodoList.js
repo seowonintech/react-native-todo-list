@@ -13,6 +13,7 @@ import { modifyTodo } from '../actions';
 
 const mapStateToProps = (state) => ({
     todos: state.todos,
+    mainState: state.mainState
 });
 
 const mapDispatchToProps = (dispatch) => ({
