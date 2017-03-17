@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import * as ActionTypes from '../actions/ActionTypes';
 import { addTodo, initTodo, modifyTodo } from '../actions';
 
-let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText }) => {
+let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText, onInitText }) => {
     let value;
     let textInput;
 
@@ -25,6 +25,7 @@ let AddTodo = ({ onClickAddButton, textInputValue, handleChangeText }) => {
                 title="Add"
                 onPress={ () => {
                     onClickAddButton(textInputValue);
+                    onInitText();
                 }}
             />
         </View>
@@ -37,9 +38,11 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = (dispatch, ownProps) => ({
+    onInitText: () => {
+        dispatch(initTodo());
+    },
     onClickAddButton: (text) => {
         dispatch(addTodo(text));
-        dispatch(initTodo());
     },
     handleChangeText: (text) => {
         dispatch(modifyTodo(text));
