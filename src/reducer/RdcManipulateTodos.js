@@ -29,6 +29,7 @@ const RdcManipulateTodos = (state = [], action) => {
             complete: !complete
           }
         }
+        return t;
       });
 
     case actions.MODIFY_TODO_TEXT:
@@ -41,6 +42,7 @@ const RdcManipulateTodos = (state = [], action) => {
           console.log('[KangLOG] MOD string : ' + JSON.stringify(temp));          
           return temp;
         }
+        return t;
       });
   }
   return state;
