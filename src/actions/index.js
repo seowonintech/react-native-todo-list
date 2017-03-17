@@ -19,7 +19,7 @@ export const modifyTodo = (id, text) => ({
 
 export const addTodo = (text) => ({
     type: ActionTypes.ADD_TODO,
-    id: initId++,
+    id: initId++, // initId 가 id: 값으로 적용 되고 ++ 연산된다 주의하자!
     text
 });
 
