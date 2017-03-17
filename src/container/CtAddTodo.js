@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import AddTodo from '../component/AddTodo'
+import CpAddTodo from '../component/CpAddTodo'
 import {addTodo, setTodoText, initTodo} from '../action'
 
 const mapStateToProps = (state) => ({
@@ -15,6 +15,6 @@ const mapDispatchToProps = (dispatch) => ({
 const CtAddTodo = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddTodo);
+)(CpAddTodo);
 
 export default CtAddTodo;

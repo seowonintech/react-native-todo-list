@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, Button } from 'react-native';
 
-class AddTodo extends Component {
+class CpAddTodo extends Component {
   constructor(props) {
     super(props);
   }
@@ -24,4 +24,4 @@ class AddTodo extends Component {
   }
 }
 
-export default AddTodo;
+export default CpAddTodo;

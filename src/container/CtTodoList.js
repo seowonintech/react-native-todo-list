@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import ShowTodoList from '../component/ShowTodoList'
+import CpShowTodoList from '../component/CpShowTodoList'
 import { deleteTodo } from '../action'
 
 const mapStateToProps = (state) => ({
@@ -13,6 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
 const CtTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShowTodoList);
+)(CpShowTodoList);
 
 export default CtTodoList;
