@@ -1,13 +1,6 @@
 import * as actions from '../action/action';
 
-let initState=
-[
-  {id:1, text:"aaaa"},
-  {id:2, text:"bbbb"},
-  {id:3, text:"cccc"}
-]
-
-const manipulateTodos = (state = initState, action) => {
+const manipulateTodos = (state = [], action) => {
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions

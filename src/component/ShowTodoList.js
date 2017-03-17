@@ -6,19 +6,22 @@ class ShowTodoList extends Component {
     super(props);
   }
 
-  showList(todos) {
-    return todos.map((todo, index) => (
-      <Text key={index}>
+  showList(todos, deleteTodo) {
+    return todos.map((todo) => (
+      <Text 
+        key={todo.id}
+        onPress={() => deleteTodo(todo.id)}
+      >
         {todo.text}
       </Text>
     ));
   }
 
   render() {
-    const { todos } = this.props;
+    const { todos, deleteTodo } = this.props;
     return (
       <View>
-        {this.showList(todos)}
+        {this.showList(todos, deleteTodo)}
       </View>
     );
   }

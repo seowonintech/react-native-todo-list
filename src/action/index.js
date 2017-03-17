@@ -21,3 +21,7 @@ export const setTodoText = (text) => ({
     type: action.SET_TODO_TEXT,
     text
 })
+
+export const initTodo = () => ({
+    type: action.INIT_TODO_TEXT,    
+})

@@ -7,15 +7,16 @@ class AddTodo extends Component {
   }
 
   render() {
-    const { dispatch, onClickAddTodo, onSetText, todoText } = this.props;    
+    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText } = this.props;
     return (
       <View>
         <TextInput
-          onChangeText={ (text) => onSetText(text) }
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}          
+          onChangeText={(text) => onSetText(text)}
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          value={todoText}
         />
         <Button
-          onPress={() => onClickAddTodo(todoText)}
+          onPress={() => {onClickAddTodo(todoText); onInitTextInput()}}
           title="Push me!"
         />
       </View>

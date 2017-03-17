@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import AddTodo from '../component/AddTodo'
-import {addTodo, setTodoText} from '../action'
+import {addTodo, setTodoText, initTodo} from '../action'
 
 const mapStateToProps = (state) => ({
   todoText: state.trackTodoText
@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onSetText: (text) => dispatch(setTodoText(text)),
-  onClickAddTodo: (text) => dispatch(addTodo(text))
+  onClickAddTodo: (text) => dispatch(addTodo(text)),
+  onInitTextInput: () => dispatch(initTodo())
 })
 
 const TrackTodoText = connect(
