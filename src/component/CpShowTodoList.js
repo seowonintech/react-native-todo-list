@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TextInput } from 'react-native'
 
 class CpShowTodoList extends Component {
   constructor(props) {
@@ -7,14 +7,13 @@ class CpShowTodoList extends Component {
   }
 
   showList(todos, deleteTodo) {
+    // {/*onPress={() => deleteTodo(todo.id)}*/}
     return todos.map((todo) => (
-      <TextInput 
-        style={{backgroundColor: 'yellow', borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}
+      <TextInput
+        style={{height: 20, borderColor: 'gray', borderWidth: 2, alignText: 'center'}}
         key={todo.id}
-        onPress={() => deleteTodo(todo.id)}
-      >
-        {todo.text}
-      </TextInput>
+        value={todo.text}
+      />
     ));
   }
 
