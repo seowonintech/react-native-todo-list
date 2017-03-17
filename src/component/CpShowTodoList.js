@@ -10,8 +10,8 @@ class CpShowTodoList extends Component {
     // {/*onPress={() => deleteTodo(todo.id)}*/}
     return todos.map((todo) => (
       <TextInput
-        style={{height: 20, borderColor: 'gray', borderWidth: 2, alignText: 'center'}}
-        key={todo.id}
+        style={{height: 30, borderColor: 'gray', borderWidth: 2, alignItems: 'center', justifyContent: 'center'}}
+        key={todo.id}       
         value={todo.text}
       />
     ));
