@@ -9,7 +9,7 @@ const RdcTrackTodoText = (state = initState, action) => {
     // such as addTodo, deleteTodo and toggleTodo except for type
     // ** actions param is action function itself **
     case actions.SET_TODO_TEXT:
-      return action.text;  
+      return action.text;
     
     case actions.INIT_TODO_TEXT:
       return '';

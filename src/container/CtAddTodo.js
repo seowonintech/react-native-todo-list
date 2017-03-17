@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import CpAddTodo from '../component/CpAddTodo'
-import {addTodo, setTodoText, initTodo} from '../action'
+import { addTodo, setTodoText, initTodo } from '../action'
 
 const mapStateToProps = (state) => ({
   todoText: state.RdcTrackTodoText

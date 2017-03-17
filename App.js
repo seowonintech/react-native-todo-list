@@ -5,7 +5,7 @@ import TodoApp from './src/'
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{flex: 1}}>
         <TodoApp />
       </View>
     );

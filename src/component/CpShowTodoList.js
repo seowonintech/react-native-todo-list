@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
 
 class CpShowTodoList extends Component {
   constructor(props) {
@@ -8,19 +8,20 @@ class CpShowTodoList extends Component {
 
   showList(todos, deleteTodo) {
     return todos.map((todo) => (
-      <Text 
+      <TextInput 
+        style={{backgroundColor: 'yellow', borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}
         key={todo.id}
         onPress={() => deleteTodo(todo.id)}
       >
         {todo.text}
-      </Text>
+      </TextInput>
     ));
   }
 
   render() {
     const { todos, deleteTodo } = this.props;
     return (
-      <View>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
         {this.showList(todos, deleteTodo)}
       </View>
     );
