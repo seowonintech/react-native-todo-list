@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import manipulateTodos from './manipulateTodos'
-import trackTodoText from './trackTodoText'
+import RdcManipulateTodos from './RdcManipulateTodos'
+import RdcTrackTodoText from './RdcTrackTodoText'
 
 const reducer = combineReducers({
-  manipulateTodos,
-  trackTodoText
+  RdcManipulateTodos,
+  RdcTrackTodoText
 });
 
 export default reducer;

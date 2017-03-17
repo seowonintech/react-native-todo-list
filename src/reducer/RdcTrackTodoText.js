@@ -2,7 +2,7 @@ import * as actions from '../action/action';
 
 let initState = "Default";
 
-const trackTodoText = (state = initState, action) => {
+const RdcTrackTodoText = (state = initState, action) => {
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
@@ -17,4 +17,4 @@ const trackTodoText = (state = initState, action) => {
   return state;
 }
 
-export default trackTodoText;
+export default RdcTrackTodoText;

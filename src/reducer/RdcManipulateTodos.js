@@ -1,6 +1,6 @@
 import * as actions from '../action/action';
 
-const manipulateTodos = (state = [], action) => {
+const RdcManipulateTodos = (state = [], action) => {
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
@@ -35,4 +35,4 @@ const manipulateTodos = (state = [], action) => {
   return state;
 }
 
-export default manipulateTodos;
+export default RdcManipulateTodos;

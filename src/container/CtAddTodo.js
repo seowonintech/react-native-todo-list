@@ -3,7 +3,7 @@ import AddTodo from '../component/AddTodo'
 import {addTodo, setTodoText, initTodo} from '../action'
 
 const mapStateToProps = (state) => ({
-  todoText: state.trackTodoText
+  todoText: state.RdcTrackTodoText
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch) => ({
   onInitTextInput: () => dispatch(initTodo())
 })
 
-const TrackTodoText = connect(
+const CtAddTodo = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AddTodo);
 
-export default TrackTodoText;
+export default CtAddTodo;
