@@ -25,3 +25,9 @@ export const setTodoText = (text) => ({
 export const initTodo = () => ({
     type: action.INIT_TODO_TEXT,    
 })
+
+export const modifyTodoText = (id, text) => ({
+    type: action.MODIFY_TODO_TEXT,
+    id,
+    text
+})

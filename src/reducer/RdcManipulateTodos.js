@@ -6,8 +6,7 @@ const RdcManipulateTodos = (state = [], action) => {
     // should be same as the returned values from action functions
     // such as addTodo, deleteTodo and toggleTodo except for type
     // ** actions param is action function itself **    
-    case actions.ADD_TODO:
-    console.warn('[Kang] action.text : ' + action.text);
+    case actions.ADD_TODO:    
       return [
         ...state,
         {
@@ -26,9 +25,21 @@ const RdcManipulateTodos = (state = [], action) => {
       return state.map(t => {
         if (t.id === action.id){
           return {
-            ...state,
+            ...t,
             complete: !complete
           }
+        }
+      });
+
+    case actions.MODIFY_TODO_TEXT:
+      return state.map(t => {
+        if (t.id === action.id){          
+          var temp = {            
+            ...t,
+            text: action.text
+          }
+          console.log('[KangLOG] MOD string : ' + JSON.stringify(temp));          
+          return temp;
         }
       });
   }
