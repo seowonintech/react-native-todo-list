@@ -1,13 +1,13 @@
-# 샘플
+# Example Image
 
-## 1
+<p align="center">
+  <img src="img/example1.png" alt="example1" width="320" height="480" />
+  <img src="img/example2.png" alt="example2" width="320" height="480" />
+  <img src="img/example3.png" alt="example3" width="320" height="480" />
+</p>
 
-![example1](https://github.com/seowonintech/react-native-todo-list/blob/dev_hyeon/img/example1.png {width=40px height=400px})
+## 작성방법
 
-## 2
-
-![example2](https://github.com/seowonintech/react-native-todo-list/blob/dev_hyeon/img/example2.png =250x250)
-
-## 3
-
-![example3](https://github.com/seowonintech/react-native-todo-list/blob/dev_hyeon/img/example3.png =200x)
+```markdown
+<img src="url" alt="alt text" width="whatever" height="whatever">
+```
