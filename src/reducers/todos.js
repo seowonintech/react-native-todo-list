@@ -52,6 +52,7 @@ const todos = (state = sampleTodos, action) => {
             return state.map((val) => {
                 if ( val.id === action.id ) {
                     return {
+                        ...val,
                         id: action.id,
                         text: action.text
                     }

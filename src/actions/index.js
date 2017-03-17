@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 
-let initId = 0;
+let initId = 3;
 
 export const initTodo = () => ({
     type: ActionTypes.INIT_TODO
