@@ -26,7 +26,7 @@ const RdcManipulateTodos = (state = [], action) => {
         if (t.id === action.id){
           return {
             ...t,
-            complete: !complete
+            complete: !t.complete
           }
         }
         return t;

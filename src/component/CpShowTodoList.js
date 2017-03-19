@@ -33,12 +33,17 @@ class CpShowTodoList extends Component {
   }
 
   showList() {
-    const { todos, deleteTodo, onModifyTodoText } = this.props;
+    const { todos, deleteTodo, toggleTodo, onModifyTodoText } = this.props;
     console.log('[KangLOG] todo.id at showList : ' + JSON.stringify(todos));
     return todos.map((todo) => {
       return (
         <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center'}} key={todo.id}>
-          <RadioButton selected={true} />
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => toggleTodo(todo.id)}
+          >
+            <RadioButton selected={todo.complete} />
+          </TouchableOpacity>
           <TextInput
             onChangeText={(text) => onModifyTodoText(todo.id, text)}
             style={styles.textInput}
