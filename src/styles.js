@@ -35,8 +35,6 @@ export default styles = StyleSheet.create({
   },
   textInput: {
     flex: 3,
-    borderColor: 'gray',
-    borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center'
   }
