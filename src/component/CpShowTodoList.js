@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, View, TextInput, Button } from 'react-native'
 import styles from '../styles'
 
+const RadioButton = (props) => {
+  return (
+    <View style={[{
+      height: 24,
+      width: 24,
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: '#000',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }, props.style]}>
+      {
+        props.selected ?
+          <View style={{
+            height: 12,
+            width: 12,
+            borderRadius: 6,
+            backgroundColor: '#000',
+          }} />
+          : null
+      }
+    </View>
+  );
+}
+
 class CpShowTodoList extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +37,8 @@ class CpShowTodoList extends Component {
     console.log('[KangLOG] todo.id at showList : ' + JSON.stringify(todos));
     return todos.map((todo) => {
       return (
-        <View style={{height: 30, backgroundColor: 'aquamarine', flexDirection: 'row'}} key={todo.id}>
+        <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center'}} key={todo.id}>
+          <RadioButton selected={true} />
           <TextInput
             onChangeText={(text) => onModifyTodoText(todo.id, text)}
             style={styles.textInput}

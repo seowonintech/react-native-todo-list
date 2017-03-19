@@ -34,7 +34,7 @@ export default styles = StyleSheet.create({
     borderRadius: 10,
   },
   textInput: {
-    flex: 5,
+    flex: 3,
     borderColor: 'gray',
     borderWidth: 1,
     alignItems: 'center',
