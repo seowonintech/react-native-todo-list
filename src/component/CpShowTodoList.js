@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
-
-const styles = StyleSheet.create({
-  textInput: {
-    height: 30,
-    borderColor: 'gray',
-    borderWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});
-
+import { TouchableOpacity, Text, View, TextInput, Button } from 'react-native'
+import styles from '../styles'
 
 class CpShowTodoList extends Component {
   constructor(props) {
@@ -22,18 +12,19 @@ class CpShowTodoList extends Component {
     console.log('[KangLOG] todo.id at showList : ' + JSON.stringify(todos));
     return todos.map((todo) => {
       return (
-        <View key={todo.id + 2}>
+        <View style={{height: 30, backgroundColor: 'aquamarine', flexDirection: 'row'}} key={todo.id}>
           <TextInput
             onChangeText={(text) => onModifyTodoText(todo.id, text)}
             style={styles.textInput}
-            key={todo.id}
             value={todo.text}
           />
-          <Button
-            key={todo.id + 1}
+          <TouchableOpacity
+            activeOpacity={1}
+            style={styles.buttonPress}
             onPress={() => deleteTodo(todo.id)}
-            title='delete'
-          />
+          >
+            <Text style={styles.welcomePress}>Delete</Text>
+          </TouchableOpacity>
         </View>
       )
     });
