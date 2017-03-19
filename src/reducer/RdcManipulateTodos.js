@@ -39,7 +39,6 @@ const RdcManipulateTodos = (state = [], action) => {
             ...t,
             text: action.text
           }
-          console.log('[KangLOG] MOD string : ' + JSON.stringify(temp));          
           return temp;
         }
         return t;

@@ -17,9 +17,8 @@ class CpShowTodoList extends Component {
     super(props);
   }
 
-  showList(todos, deleteTodo, onModifyTodoText) {
-    // {/*onPress={() => deleteTodo(todo.id)}*/}
-    {/*onChangeText={(text) => onModifyTodoText(todo.id, text)}*/ }
+  showList() {
+    const { todos, deleteTodo, onModifyTodoText } = this.props;
     console.log('[KangLOG] todo.id at showList : ' + JSON.stringify(todos));
     return todos.map((todo) => {
       return (
@@ -41,10 +40,9 @@ class CpShowTodoList extends Component {
   }
 
   render() {
-    const { todos, deleteTodo, onModifyTodoText } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: 'green' }}>
-        {this.showList(todos, deleteTodo, onModifyTodoText)}
+        {this.showList()}
       </View>
     );
   }
