@@ -3,17 +3,20 @@ import { TextInput, View } from 'react-native';
 
 const Todo = ({ todos, handleChangeText, mainState }) => (
     // <View style={{flexDirection: 'column', width: 140, height: 100}}>
-    <View style={{flexDirection: 'column', flex: 0.95}}>
+    <View style={{
+        flex: 95,
+        flexDirection: 'column',
+        backgroundColor: 'skyblue',
+        justifyContent: 'center'
+    }}>
         {todos.map((todo, index) => (
             <TextInput
                 style={{
-                    flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: 150,
-                    flexDirection: 'row', 
                     borderColor: 'gray',
-                    borderWidth: 1
+                    borderWidth: 1,
+                    height: 30
                 }}
                 key={index}
                 value={todo.text}

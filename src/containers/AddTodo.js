@@ -8,14 +8,14 @@ import * as ActionTypes from '../actions/ActionTypes';
 import { addTodo, initTodo, setText } from '../actions';
 
 let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText }) => (
-    <View style={{height: 40, flexDirection:'row', flex: 0.05}}>
+    <View style={{flex: 5, height: 40, flexDirection:'row', backgroundColor: 'steelblue'}}>
         <TextInput
-            style={{flex: 0.8, borderColor: 'gray', borderWidth: 1}}
+            style={{flex: 80, borderColor: 'gray', borderWidth: 1}}
             onChangeText={text => handleChangeText(text)}
             value={mainState.textInputValue}
         />
         <Button
-            style={{flex: 0.2}}
+            style={{flex: 20}}
             title="Add"
             onPress={ () => {
                 if ( !mainState.textInputValue.trim() ) return;
