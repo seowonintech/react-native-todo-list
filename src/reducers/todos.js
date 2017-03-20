@@ -16,6 +16,66 @@ let sampleTodos = [
         complete: false,
         text: "love"
     },
+    {
+        id: 0,
+        complete: false,
+        text: "eat"
+    },
+    {
+        id: 1,
+        complete: false,
+        text: "play"
+    },
+    {
+        id: 2,
+        complete: false,
+        text: "love"
+    },
+    {
+        id: 0,
+        complete: false,
+        text: "eat"
+    },
+    {
+        id: 1,
+        complete: false,
+        text: "play"
+    },
+    {
+        id: 2,
+        complete: false,
+        text: "love"
+    },
+    {
+        id: 0,
+        complete: false,
+        text: "eat"
+    },
+    {
+        id: 1,
+        complete: false,
+        text: "play"
+    },
+    {
+        id: 2,
+        complete: false,
+        text: "love"
+    },
+    {
+        id: 0,
+        complete: false,
+        text: "eat"
+    },
+    {
+        id: 1,
+        complete: false,
+        text: "play"
+    },
+    {
+        id: 2,
+        complete: false,
+        text: "love"
+    },
 ];
 
 const todo = (state = {}, action) => {

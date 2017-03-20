@@ -1,6 +1,6 @@
 // React
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from 'react-native';
 // Reudx
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -15,10 +15,10 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-          <ScrollView style={styles.container}>
-              <TodoList />
-              <AddTodo />
-          </ScrollView>
+        <ScrollView style={styles.container}>
+            <TodoList />
+            <AddTodo />
+        </ScrollView>
       </Provider>
     );
   }

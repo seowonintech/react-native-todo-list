@@ -11,31 +11,28 @@ const styles = {
     KeyboardAvoidingView: {
         justifyContent: 'center',
         flex: 1,
-        height: 40,
         flexDirection:'row',
-        backgroundColor: 'steelblue',
+        backgroundColor: 'pink',
+        height: 40,
     }
 };
 
 let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText }) => (
-    <View style={{height: 40, flexDirection:'row', backgroundColor: 'steelblue'}}>
-        <KeyboardAvoidingView style={styles.KeyboardAvoidingView} behavior='padding'>
-                <TextInput
-                    style={{flex: 80, borderColor: 'gray', borderWidth: 1}}
-                    onChangeText={text => handleChangeText(text)}
-                    value={mainState.textInputValue}
-                />
-                <Button
-                    style={{flex: 20}}
-                    title="Add"
-                    onPress={ () => {
-                        if ( !mainState.textInputValue.trim() ) return;
-                        onClickAddButton(mainState.textInputValue);
-                        onInitText();
-                    }}
-                />
-        </KeyboardAvoidingView>
-    </View>
+    <KeyboardAvoidingView contentContainerStyle={styles.KeyboardAvoidingView} behavior='position'>
+        <TextInput
+            style={{flex: 1, borderColor: 'gray', borderWidth: 1}}
+            onChangeText={text => handleChangeText(text)}
+            value={mainState.textInputValue}
+        />
+        <Button
+            title="Add"
+            onPress={ () => {
+                if ( !mainState.textInputValue.trim() ) return;
+                onClickAddButton(mainState.textInputValue);
+                onInitText();
+            }}
+        />
+    </KeyboardAvoidingView>
 );
 
 
