@@ -31,7 +31,7 @@ const todo = (state = {}, action) => {
                 id: action.id,
                 text: action.text,
             };
-        case ActionTypes.REMOVE_TODO:
+        case ActionTypes.DELETE_TODO:
             return {
                 id: action.id,
             };
@@ -70,10 +70,8 @@ const todos = (state = sampleTodos, action) => {
             });
         }
             
-        case ActionTypes.REMOVE_TODO:
-            return filter(val => {
-                !val.id === action.id
-            });
+        case ActionTypes.DELETE_TODO:
+            return state.filter(val => val.id !== action.id);
         case ActionTypes.COMPLETE_TODO:
             return state.map((val) => {
                 if ( val.id === action.id ) {

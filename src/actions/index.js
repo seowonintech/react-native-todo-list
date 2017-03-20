@@ -23,8 +23,8 @@ export const addTodo = (text) => ({
     text
 });
 
-export const removeTodo = (id) => ({
-    type: ActionTypes.REMOVE_TODO,
+export const deleteTodo = (id) => ({
+    type: ActionTypes.DELETE_TODO,
     id
 });
 

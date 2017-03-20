@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 // Custom
 import Todo from '../components/Todo';
-import { modifyTodo, completeTodo } from '../actions';
+import { modifyTodo, completeTodo, deleteTodo } from '../actions';
 
 // const TodoList = ({ todos }) => (
 //    <Text>{ todos }123</Text>
@@ -22,6 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     handleCheckedRadioButton: (id) => {
         dispatch(completeTodo(id))
+    },
+    handleDelete: (id) => {
+        dispatch(deleteTodo(id))
     },
 });
 
