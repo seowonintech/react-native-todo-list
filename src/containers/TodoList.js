@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 // Custom
 import Todo from '../components/Todo';
-import { modifyTodo } from '../actions';
+import { modifyTodo, completeTodo } from '../actions';
 
 // const TodoList = ({ todos }) => (
 //    <Text>{ todos }123</Text>
@@ -19,7 +19,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     handleChangeText: (id, text) => {
         dispatch(modifyTodo(id, text))
-    }
+    },
+    handleCheckedRadioButton: (id) => {
+        dispatch(completeTodo(id))
+    },
 });
 
 const TodoList = connect(mapStateToProps, mapDispatchToProps)(Todo);

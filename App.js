@@ -1,6 +1,6 @@
 // React
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 // Reudx
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -15,13 +15,10 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-          <View style={styles.container}>
+          <ScrollView style={styles.container}>
               <TodoList />
               <AddTodo />
-              {/*<View style={{flex: 1, backgroundColor: 'powderblue'}} />
-              <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-              <View style={{flex: 3, backgroundColor: 'steelblue'}} />*/}
-          </View>
+          </ScrollView>
       </Provider>
     );
   }

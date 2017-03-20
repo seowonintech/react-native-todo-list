@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput, View, Text, TouchableOpacity, Button } from 'react-native';
+// Custom
+import { RadioButton } from '../lib/taesu-react-native';
 
-const Todo = ({ todos, handleChangeText, mainState }) => (
-    // <View style={{flexDirection: 'column', width: 140, height: 100}}>
+const Todo = ({ todos, handleChangeText, handleCheckedRadioButton }) => (
     <View style={{
-        flex: 95,
-        flexDirection: 'column',
-        backgroundColor: 'skyblue',
-        justifyContent: 'center'
-    }}>
+            flex: 1,
+            flexDirection: 'column',
+            backgroundColor: 'skyblue',
+            justifyContent: 'center'
+        }}>
         {todos.map((todo, index) => (
-            <TextInput
+            <View
                 style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    backgroundColor: 'skyblue',
                     justifyContent: 'center',
-                    alignItems: 'center',
-                    borderColor: 'gray',
-                    borderWidth: 1,
-                    height: 30
                 }}
                 key={index}
-                value={todo.text}
-                onChangeText={text => {
-                    handleChangeText(index, text);
-                }}
-            />
+            >
+                <TouchableOpacity 
+                    onPress={() => handleCheckedRadioButton(todo.id)}
+                >
+                    <RadioButton complete={todo.complete} />
+                </TouchableOpacity>
+                    <TextInput
+                        style={{
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderColor: 'gray',
+                            borderWidth: 1,
+                            height: 30,
+                            flex: 1
+                        }}
+                        value={todo.text}
+                        onChangeText={text => {
+                            handleChangeText(index, text);
+                        }}
+                    />
+            </View>
         ))}
     </View>
 );

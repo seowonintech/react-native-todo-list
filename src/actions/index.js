@@ -27,3 +27,8 @@ export const removeTodo = (id) => ({
     type: ActionTypes.REMOVE_TODO,
     id
 });
+
+export const completeTodo = (id) => ({
+    type: ActionTypes.COMPLETE_TODO,
+    id
+});
