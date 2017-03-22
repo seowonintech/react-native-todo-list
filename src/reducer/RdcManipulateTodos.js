@@ -14,35 +14,40 @@ const RdcManipulateTodos = (state = {}, action) => {
       });
       return {
         ...state,
-        key: dbRef.key,
+        keys: [
+          ...state.keys,
+          dbRef.key,
+        ]
       };
 
     case actions.DELETE_TODO:
-      return state.filter(t => t.id !== action.id);
+      let dbRef = action.database.ref('todos');
+      dbRef.child(action.key).remove();
+      // return state.filter(t => t.id !== action.id);
 
     // complete or not
     case actions.TOGGLE_TODO:
-      return state.map(t => {
-        if (t.id === action.id){
-          return {
-            ...t,
-            complete: !t.complete
-          }
-        }
-        return t;
-      });
+      // return state.map(t => {
+      //   if (t.id === action.id){
+      //     return {
+      //       ...t,
+      //       complete: !t.complete
+      //     }
+      //   }
+      //   return t;
+      // });
 
     case actions.MODIFY_TODO_TEXT:
-      return state.map(t => {
-        if (t.id === action.id){          
-          var temp = {            
-            ...t,
-            text: action.text
-          }
-          return temp;
-        }
-        return t;
-      });
+      // return state.map(t => {
+      //   if (t.id === action.id){          
+      //     var temp = {            
+      //       ...t,
+      //       text: action.text
+      //     }
+      //     return temp;
+      //   }
+      //   return t;
+      // });
   }
   return state;
 }
