@@ -14,7 +14,7 @@ class CpAddTodo extends Component {
         <TextInput
           style={{flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}
           onChangeText={(text) => onSetText(text)}
-          value={todoText}          
+          value={todoText}
         />
         <TouchableOpacity
           activeOpacity={1}

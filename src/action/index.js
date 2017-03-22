@@ -31,3 +31,8 @@ export const modifyTodoText = (id, text) => ({
     id,
     text
 })
+
+export const setDatabaseRef = (dbRef) => ({
+    type: action.TODO_DATABASE_REF,
+    database: dbRef,
+})

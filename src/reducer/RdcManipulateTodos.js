@@ -1,21 +1,21 @@
 import * as actions from '../action/action';
 
-const RdcManipulateTodos = (state = [], action) => {
+const RdcManipulateTodos = (state = {}, action) => {
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
     // such as addTodo, deleteTodo and toggleTodo except for type
     // ** actions param is action function itself **    
-    case actions.ADD_TODO:    
-      return [
+    case actions.ADD_TODO:
+      let dbRef = action.database.ref('todos');
+      dbRef.push({
+        text: action.text,
+        complete: false,
+      });
+      return {
         ...state,
-        {
-          // values returned from addTodo action such as id and text, but no type.
-          id: action.id,
-          text: action.text,
-          complete: false
-        }
-      ];
+        key: dbRef.key,
+      };
 
     case actions.DELETE_TODO:
       return state.filter(t => t.id !== action.id);

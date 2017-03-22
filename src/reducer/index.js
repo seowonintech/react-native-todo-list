@@ -4,7 +4,8 @@ import RdcTrackTodoText from './RdcTrackTodoText'
 
 const reducer = combineReducers({
   RdcManipulateTodos,
-  RdcTrackTodoText
+  RdcTrackTodoText,
+  RdcFirebaseController,
 });
 
 export default reducer;
