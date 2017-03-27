@@ -7,14 +7,14 @@ export const addTodo = (text) => ({
     text
 })
 
-export const deleteTodo = (id) => ({
+export const deleteTodo = (key) => ({
     type: action.DELETE_TODO,
-    id
+    key
 })
 
-export const toggleTodo = (id) => ({
+export const toggleTodo = (key) => ({
     type: action.TOGGLE_TODO,
-    id
+    key
 })
 
 export const setTodoText = (text) => ({
@@ -26,13 +26,18 @@ export const initTodo = () => ({
     type: action.INIT_TODO_TEXT,    
 })
 
-export const modifyTodoText = (id, text) => ({
+export const modifyTodoText = (key, text) => ({
     type: action.MODIFY_TODO_TEXT,
-    id,
+    key,
     text
 })
 
 export const setDatabaseRef = (dbRef) => ({
     type: action.TODO_DATABASE_REF,
     database: dbRef,
+})
+
+export const refreshList = (todos) => ({
+    type: action.REFRESH_TODO_LIST,
+    todos,
 })

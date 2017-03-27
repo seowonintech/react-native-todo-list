@@ -6,6 +6,9 @@ const RdcManipulateTodos = (state = {}, action) => {
     // should be same as the returned values from action functions
     // such as addTodo, deleteTodo and toggleTodo except for type
     // ** actions param is action function itself **    
+    case actions.REFRESH_TODO_LIST:
+      return action.todos;
+
     case actions.ADD_TODO:
       let dbRef = action.database.ref('todos');
       dbRef.push({
@@ -21,8 +24,8 @@ const RdcManipulateTodos = (state = {}, action) => {
       };
 
     case actions.DELETE_TODO:
-      let dbRef = action.database.ref('todos');
-      dbRef.child(action.key).remove();
+      let dbRef = state.database.ref('todos');
+      state.keys.filter(key => {});      
       // return state.filter(t => t.id !== action.id);
 
     // complete or not
