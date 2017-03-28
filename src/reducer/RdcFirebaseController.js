@@ -7,7 +7,10 @@ const RdcFirebaseController = (state = {}, action) => {
     // such as addTodo, deleteTodo and toggleTodo except for type
     // ** actions param is action function itself **
     case actions.SET_DATABASE_REF:
-      return action.database;
+      return {
+        database: action.database,
+        keys: [],
+      }
   }
   return state;
 }

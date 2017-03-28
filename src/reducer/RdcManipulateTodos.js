@@ -25,7 +25,10 @@ const RdcManipulateTodos = (state = {}, action) => {
 
     case actions.DELETE_TODO:
       let dbRef = state.database.ref('todos');
-      state.keys.filter(key => {});      
+      dbRef.child(action.key).remove();
+      state.keys.filter(key => {
+        key != action.key
+      });
       // return state.filter(t => t.id !== action.id);
 
     // complete or not
