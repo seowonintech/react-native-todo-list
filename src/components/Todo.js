@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import { TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 // Custom
 import { RadioButton, Button } from '../lib/taesu-react-native';
 
 const Todo = ({ todos, handleChangeText, handleCheckedRadioButton, handleDelete }) => (
-    <View style={{
+    <ScrollView style={{
             flex: 1,
             flexDirection: 'column',
             backgroundColor: 'skyblue',
+            
+        }}
+        contentContainerStyle={{
             justifyContent: 'center',
             alignItems: 'center',
-        }}>
+        }}
+    >
         {todos.map((todo, index) => (
             <View
                 style={{
@@ -50,7 +54,7 @@ const Todo = ({ todos, handleChangeText, handleCheckedRadioButton, handleDelete 
                 </TouchableOpacity>
             </View>
         ))}
-    </View>
+    </ScrollView>
 );
 
 export default Todo;
