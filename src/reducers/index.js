@@ -5,7 +5,7 @@ import mainState from './mainState';
 
 const todoApp = combineReducers({
     todos,
-    mainState
+    mainState,
 });
 
 export default todoApp;

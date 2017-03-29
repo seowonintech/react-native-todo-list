@@ -1,4 +1,6 @@
 import * as ActionTypes from '../actions/ActionTypes';
+import configFirebase from './configFirebase';
+import firebase from 'firebase';
 
 let sampleTodos = [
     {
@@ -16,71 +18,22 @@ let sampleTodos = [
         complete: false,
         text: "love"
     },
-    {
-        id: 0,
-        complete: false,
-        text: "eat"
-    },
-    {
-        id: 1,
-        complete: false,
-        text: "play"
-    },
-    {
-        id: 2,
-        complete: false,
-        text: "love"
-    },
-    {
-        id: 0,
-        complete: false,
-        text: "eat"
-    },
-    {
-        id: 1,
-        complete: false,
-        text: "play"
-    },
-    {
-        id: 2,
-        complete: false,
-        text: "love"
-    },
-    {
-        id: 0,
-        complete: false,
-        text: "eat"
-    },
-    {
-        id: 1,
-        complete: false,
-        text: "play"
-    },
-    {
-        id: 2,
-        complete: false,
-        text: "love"
-    },
-    {
-        id: 0,
-        complete: false,
-        text: "eat"
-    },
-    {
-        id: 1,
-        complete: false,
-        text: "play"
-    },
-    {
-        id: 2,
-        complete: false,
-        text: "love"
-    },
 ];
+
+let todoTest = firebase.database().ref('/todos').once('value').then((snapshot) => {
+    console.log('[TS_LOG] snapshot : ' + JSON.stringify(snapshot.val()));
+    sampleTodos = snapshot.val();
+    console.log('[TS_LOG] snapshot.val().complete : ' + snapshot.val().complete);
+});
 
 const todo = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO:
+            // configFirebase.database().ref('/todo').set(action.text);
+            firebase.database().ref(action.id).set({
+                complete: false,
+                text: action.text,
+            });
             return {
                 id: action.id++,
                 complete: false,
