@@ -5,9 +5,14 @@ const RdcManipulateTodos = (state = {}, action) => {
     // the action parameter
     // should be same as the returned values from action functions
     // such as addTodo, deleteTodo and toggleTodo except for type
-    // ** actions param is action function itself **    
-    case actions.REFRESH_TODO_LIST:
-      return action.todos;
+    // ** actions param is action function itself **      
+
+    // Init database object
+    // and key array
+    case actions.SET_DATABASE_REF: 
+      return {
+        database: action.database,        
+      };
 
     case actions.ADD_TODO:
       let dbRef = action.database.ref('todos');
@@ -15,45 +20,35 @@ const RdcManipulateTodos = (state = {}, action) => {
         text: action.text,
         complete: false,
       });
-      return {
-        ...state,
-        keys: [
-          ...state.keys,
-          dbRef.key,
-        ]
-      };
+      return state;
 
     case actions.DELETE_TODO:
       let dbRef = state.database.ref('todos');
       dbRef.child(action.key).remove();
-      state.keys.filter(key => {
-        key != action.key
-      });
-      // return state.filter(t => t.id !== action.id);
+      return state;
 
-    // complete or not
     case actions.TOGGLE_TODO:
-      // return state.map(t => {
-      //   if (t.id === action.id){
-      //     return {
-      //       ...t,
-      //       complete: !t.complete
-      //     }
-      //   }
-      //   return t;
-      // });
+    // return state.map(t => {
+    //   if (t.id === action.id){
+    //     return {
+    //       ...t,
+    //       complete: !t.complete
+    //     }
+    //   }
+    //   return t;
+    // });
 
     case actions.MODIFY_TODO_TEXT:
-      // return state.map(t => {
-      //   if (t.id === action.id){          
-      //     var temp = {            
-      //       ...t,
-      //       text: action.text
-      //     }
-      //     return temp;
-      //   }
-      //   return t;
-      // });
+    // return state.map(t => {
+    //   if (t.id === action.id){          
+    //     var temp = {            
+    //       ...t,
+    //       text: action.text
+    //     }
+    //     return temp;
+    //   }
+    //   return t;
+    // });
   }
   return state;
 }
