@@ -32,7 +32,7 @@ export const modifyTodoText = (key, text) => ({
 })
 
 export const setDatabaseRef = (dbRef) => ({
-    type: action.TODO_DATABASE_REF,
+    type: action.SET_DATABASE_REF,
     database: dbRef,
 })
 

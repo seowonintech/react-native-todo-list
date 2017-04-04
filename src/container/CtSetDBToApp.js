@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import App from '../component/MainWindow'
+import MainWindow from '../component/MainWindow'
 
 const App = connect()(MainWindow);
 
