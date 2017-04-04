@@ -10,13 +10,14 @@ const RdcManipulateTodos = (state = {}, action) => {
 
     // Init database object
     // and key array
-    case actions.SET_DATABASE_REF: 
+    case actions.SET_DATABASE_REF:       
       return {
-        database: action.database,        
+        database: action.database,
       };
 
     case actions.ADD_TODO:
-      dbRef = action.database.ref('todos');
+      dbRef = state.database.ref();
+      console.warn('[KangLOG] action.text : ' + action.text);
       dbRef.push({
         text: action.text,
         complete: false,
@@ -24,7 +25,7 @@ const RdcManipulateTodos = (state = {}, action) => {
       return state;
 
     case actions.DELETE_TODO:
-      dbRef = action.database.ref('todos');
+      dbRef = state.database.ref();
       dbRef.child(action.key).remove();
       return state;
 

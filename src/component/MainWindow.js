@@ -7,28 +7,33 @@ import { connect } from 'react-redux'
 
 class MainWindow extends Component {
   constructor(props) {
-    super(props);        
+    super(props);
   }
 
-  componentDidMount(){
-    const {dispatch} = this.props;
-    dispatch(setDatabaseRef(this.props.database));
+  componentDidMount() {
+    const { dispatch, database } = this.props;
+    dispatch(setDatabaseRef(database));
 
-    let dbRef = this.props.database.ref('todos');
+    let dbRef = database.ref();
     dbRef.on('value', (snapshot) => {
-      console.log('[KangLOG] snapshot.val() : ' + snapshot.val());
-      snapshot.forEach(childSnapshot => {
-          var key = childSnapshot.key,
-          var text = childSnapshot.val().text,
-          var complete = childSnapshot.val().complete,
-      })
-      dispatch(refreshList(todoList)); // array
+      if (snapshot.val() != undefined) {
+        var arrayOfTodos = Object.keys(snapshot.val()).map(key => {
+          return {
+            key,
+            text: snapshot.val()[key].text,
+            complete: snapshot.val()[key].complete,
+          };
+        });
+        console.warn('[KangLOG] values : ' + JSON.stringify(arrayOfTodos));
+
+        dispatch(refreshList(todoList)); // array
+      }
     })
   }
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'steelblue'}}>
+      <View style={{ flex: 1, backgroundColor: 'steelblue' }}>
         <CtAddTodo />
         <CtTodoList />
       </View>
