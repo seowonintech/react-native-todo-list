@@ -18,11 +18,21 @@ export default class App extends React.Component {
   componentDidMount() {
     databaseRef.on('value', function (snapshot) {
       // console.warn('[KangLOG] snapshwarnval() : ' + JSON.stringify( childSnapshot.val() ) + ' Key : ' + childSnapshot.key );
-      snapshot.forEach(childSnapshot => {
-        var title = childSnapshot.val().title;
-        var content = childSnapshot.val().content;
+      // snapshot.forEach(childSnapshot => {
+      //   var title = childSnapshot.val().title;
+      //   var content = childSnapshot.val().content;
+      // });
+      // console.warn('[KangLOG] keys : ' + JSON.stringify(Object.keys(snapshot.val())));
+      // console.warn('[KangLOG] values : ' + JSON.stringify(Object.values(snapshot.val())));
+
+      var arrayOfTodos = Object.keys(snapshot.val()).map(key => {
+        return {
+          key,
+          text: snapshot.val()[key].title,
+          complete: snapshot.val()[key].content,
+        };
       });
-      console.warn('[KangLOG] snapshwarnval() : ' + JSON.stringify());
+      console.warn('[KangLOG] values : ' + JSON.stringify(arrayOfTodos));
     });
   }
 
