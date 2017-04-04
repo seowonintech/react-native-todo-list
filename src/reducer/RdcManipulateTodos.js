@@ -1,6 +1,7 @@
 import * as actions from '../action/action';
 
 const RdcManipulateTodos = (state = {}, action) => {
+  let dbRef;
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
@@ -15,7 +16,7 @@ const RdcManipulateTodos = (state = {}, action) => {
       };
 
     case actions.ADD_TODO:
-      let dbRef = action.database.ref('todos');
+      dbRef = action.database.ref('todos');
       dbRef.push({
         text: action.text,
         complete: false,
@@ -23,7 +24,7 @@ const RdcManipulateTodos = (state = {}, action) => {
       return state;
 
     case actions.DELETE_TODO:
-      let dbRef = state.database.ref('todos');
+      dbRef = action.database.ref('todos');
       dbRef.child(action.key).remove();
       return state;
 

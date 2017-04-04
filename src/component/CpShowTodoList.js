@@ -35,27 +35,13 @@ class CpShowTodoList extends Component {
   showList() {
     const { todoControl, showTodoList } = this.props;
     
-    return todoList.map((todo) => {
+    return showTodoList.map((todo) => {
       return (
-        <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center'}} key={todo.id}>
-          {/*<TouchableOpacity
-            activeOpacity={1}
-            onPress={() => toggleTodo(todo.id)}
-          >
-            <RadioButton selected={todo.complete} />
-          </TouchableOpacity>*/}
+        <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center'}} key={todo.key}>
           <TextInput
-            onChangeText={(text) => onModifyTodoText(todo.id, text)}
             style={styles.textInput}
             value={todo.text}
           />
-          {/*<TouchableOpacity
-            activeOpacity={1}
-            style={styles.buttonPress}
-            onPress={() => deleteTodo(todo.id)}
-          >
-            <Text style={styles.welcomePress}>Delete</Text>
-          </TouchableOpacity>*/}
         </View>
       )
     });

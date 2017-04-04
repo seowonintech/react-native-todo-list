@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
-import App from './component/App';
+import App from './container/CtSetDBToApp';
 import * as firebase from 'firebase';
 
 var config = {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import App from '../component/App'
+import App from '../component/MainWindow'
 
-const CtSetDBToApp = connect()(App);
+const App = connect()(MainWindow);
 
-export default CtSetDBToApp;
+export default App;

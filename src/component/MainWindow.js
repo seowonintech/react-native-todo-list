@@ -3,14 +3,17 @@ import { Text, View } from 'react-native';
 import CtTodoList from '../container/CtTodoList';
 import CtAddTodo from '../container/CtAddTodo';
 import { setDatabaseRef, refreshList } from '../action';
+import { connect } from 'react-redux'
 
-class App extends Component {
+class MainWindow extends Component {
   constructor(props) {
-    super(props);
-    dispatch(setDatabaseRef(this.props.database));    
+    super(props);        
   }
 
-  componentDidMount(){    
+  componentDidMount(){
+    const {dispatch} = this.props;
+    dispatch(setDatabaseRef(this.props.database));
+
     let dbRef = this.props.database.ref('todos');
     dbRef.on('value', (snapshot) => {
       let todoList = snapshot.map(childSnapshot => {
@@ -34,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainWindow;
