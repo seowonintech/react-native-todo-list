@@ -9,21 +9,25 @@ class CpAddTodo extends Component {
 
 
   render() {
-    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText } = this.props;
+    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText, dbRef } = this.props;
     return (
-      <View style={{flex: 1, backgroundColor: 'powderblue', flexDirection: 'row'}}>
+      <View style={{ flex: 1, backgroundColor: 'powderblue', flexDirection: 'row' }}>
         <TextInput
-          style={{flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}          
-          value={todoText}
-          onSubmitEditing={onSetText(text)}
-          onFocus={onInitTextInput()}
+          style={{ flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center' }}
+          onChangeText={text => onSetText(text)}
+          onFocus={() => onInitTextInput()}
         />
         <TouchableOpacity
           activeOpacity={1}
-          style={ styles.buttonPress }
-          onPress={() => {onClickAddTodo("bbb");}}
+          style={styles.buttonPress}
+          onPress={() => {
+            dbRef.database.push({
+              text: todoText,
+              complete: false,
+            });
+          }}
         >
-          <Text style={ styles.welcomePress }>push me</Text>
+          <Text style={styles.welcomePress}>push me</Text>
         </TouchableOpacity>
       </View>
     );

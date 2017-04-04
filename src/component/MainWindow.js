@@ -24,8 +24,6 @@ class MainWindow extends Component {
             complete: snapshot.val()[key].complete,
           };
         });
-        console.warn('[KangLOG] values : ' + JSON.stringify(arrayOfTodos));
-
         dispatch(refreshList(arrayOfTodos)); // array
       }
     })

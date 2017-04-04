@@ -33,7 +33,7 @@ class CpShowTodoList extends Component {
   }
 
   showList() {
-    const { todoControl, showTodoList } = this.props;
+    const { showTodoList } = this.props;
     
     return showTodoList.map((todo) => {
       return (

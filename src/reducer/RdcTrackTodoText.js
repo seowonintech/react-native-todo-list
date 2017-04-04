@@ -1,6 +1,6 @@
 import * as actions from '../action/action';
 
-let initState = "";
+let initState = "Default";
 
 const RdcTrackTodoText = (state = initState, action) => {
   switch (action.type) {

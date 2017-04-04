@@ -14,19 +14,18 @@ const RdcManipulateTodos = (state = {}, action) => {
       return {
         database: action.database,
       };
-
+    
+    // You are not supposed to use any functions in reducer??
     case actions.ADD_TODO:
-      dbRef = state.database.ref();
-      console.warn('[KangLOG] action.text : ' + action.text);
-      dbRef.push({
-        text: action.text,
-        complete: false,
-      });
+      // dbRef = state.database.ref();
+      // console.warn('[KangLOG] action.text : ' + action.text);
+      // dbRef.push({
+      //   text: action.text,
+      //   complete: false,
+      // });
       return state;
 
     case actions.DELETE_TODO:
-      dbRef = state.database.ref();
-      dbRef.child(action.key).remove();
       return state;
 
     case actions.TOGGLE_TODO:
@@ -39,6 +38,7 @@ const RdcManipulateTodos = (state = {}, action) => {
     //   }
     //   return t;
     // });
+      return state;
 
     case actions.MODIFY_TODO_TEXT:
     // return state.map(t => {
@@ -51,6 +51,7 @@ const RdcManipulateTodos = (state = {}, action) => {
     //   }
     //   return t;
     // });
+      return state;
   }
   return state;
 }
