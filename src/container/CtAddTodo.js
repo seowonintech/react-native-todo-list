@@ -4,7 +4,7 @@ import { addTodo, setTodoText, initTodo } from '../action'
 
 const mapStateToProps = (state) => ({
   todoText: state.RdcTrackTodoText,
-  dbRef: state.RdcManipulateTodos
+  dbRef: state.RdcManipulateTodos,
 });
 
 const mapDispatchToProps = (dispatch) => ({

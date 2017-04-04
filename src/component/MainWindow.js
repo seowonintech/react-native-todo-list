@@ -16,6 +16,7 @@ class MainWindow extends Component {
 
     let dbRef = database.ref();
     dbRef.on('value', (snapshot) => {
+      
       if (snapshot.val() != undefined) {
         var arrayOfTodos = Object.keys(snapshot.val()).map(key => {
           return {

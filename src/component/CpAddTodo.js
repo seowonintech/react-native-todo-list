@@ -7,9 +7,8 @@ class CpAddTodo extends Component {
     super(props);
   }
 
-
   render() {
-    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText, dbRef } = this.props;
+    const { onClickAddTodo, onInitTextInput, onSetText, todoText, dbRef } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: 'powderblue', flexDirection: 'row' }}>
         <TextInput
@@ -21,7 +20,8 @@ class CpAddTodo extends Component {
           activeOpacity={1}
           style={styles.buttonPress}
           onPress={() => {
-            dbRef.database.push({
+            var database = dbRef.database.ref()
+            database.push({
               text: todoText,
               complete: false,
             });
