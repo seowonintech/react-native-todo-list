@@ -16,10 +16,13 @@ var databaseRef = firebase.database().ref();
 export default class App extends React.Component {
 
   componentDidMount() {
-    databaseRef.on('value', function(snapshot) {
+    databaseRef.on('value', function (snapshot) {
+      // console.warn('[KangLOG] snapshwarnval() : ' + JSON.stringify( childSnapshot.val() ) + ' Key : ' + childSnapshot.key );
       snapshot.forEach(childSnapshot => {
-        console.warn('[KangLOG] snapshwarnval() : ' + JSON.stringify( childSnapshot.val() ) + ' Key : ' + childSnapshot.key );
+        var title = childSnapshot.val().title;
+        var content = childSnapshot.val().content;
       });
+      console.warn('[KangLOG] snapshwarnval() : ' + JSON.stringify());
     });
   }
 
