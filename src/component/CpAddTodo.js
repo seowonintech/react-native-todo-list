@@ -12,8 +12,7 @@ class CpAddTodo extends Component {
     return (
       <View style={{flex: 1, backgroundColor: 'powderblue', flexDirection: 'row'}}>
         <TextInput
-          style={{flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}
-          onChangeText={(text) => onSetText(text)}
+          style={{flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}          
           value={todoText}
         />
         <TouchableOpacity

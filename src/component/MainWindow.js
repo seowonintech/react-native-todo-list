@@ -16,14 +16,15 @@ class MainWindow extends Component {
 
     let dbRef = this.props.database.ref('todos');
     dbRef.on('value', (snapshot) => {
-      let todoList = snapshot.map(childSnapshot => {
-        return {
-          key: childSnapshot.key,
-          text: childSnapshot.val().text,
-          complete: childSnapshot.val().complete,
-        };
-      })
-      dispatch(refreshList(todoList)); // array
+      console.log('[KangLOG] snapshot.val() : ' + snapshot.val());
+      // let todoList = snapshot.forEach(childSnapshot => {
+      //   return {
+      //     key: childSnapshot.key,
+      //     text: childSnapshot.val().text,
+      //     complete: childSnapshot.val().complete,
+      //   };
+      // })
+      // dispatch(refreshList(todoList)); // array
     })
   }
 
