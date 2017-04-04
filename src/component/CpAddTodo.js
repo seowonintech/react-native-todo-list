@@ -7,13 +7,16 @@ class CpAddTodo extends Component {
     super(props);
   }
 
+
   render() {
-    const { dispatch, onClickAddTodo, onInitTextInput, onSetText } = this.props;
+    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText } = this.props;
     return (
       <View style={{flex: 1, backgroundColor: 'powderblue', flexDirection: 'row'}}>
         <TextInput
           style={{flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center'}}          
-          value="aaaa"
+          value={todoText}
+          onSubmitEditing={onSetText(text)}
+          onFocus={onInitTextInput()}
         />
         <TouchableOpacity
           activeOpacity={1}

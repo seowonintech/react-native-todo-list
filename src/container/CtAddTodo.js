@@ -3,16 +3,18 @@ import CpAddTodo from '../component/CpAddTodo'
 import { addTodo, setTodoText, initTodo } from '../action'
 
 const mapStateToProps = (state) => ({
-  todoText: state.RdcManipulateTodos
-});
+  todoText: state.RdcTrackTodoText
+})
 
-const mapDispatchToProps = (dispatch) => ({  
-  onClickAddTodo: (text) => dispatch(addTodo(text)),  
+const mapDispatchToProps = (dispatch) => ({
+  onClickAddTodo: (text) => dispatch(addTodo(text)),
+  onSetText: (text) => dispatch(setTodoText(text)),
+  onInitTextInput: () => dispatch(initTodo()),
 })
 
 const CtAddTodo = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CpAddTodo);
 
 export default CtAddTodo;
