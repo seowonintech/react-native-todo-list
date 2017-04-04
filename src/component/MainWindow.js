@@ -26,7 +26,7 @@ class MainWindow extends Component {
         });
         console.warn('[KangLOG] values : ' + JSON.stringify(arrayOfTodos));
 
-        dispatch(refreshList(todoList)); // array
+        dispatch(refreshList(arrayOfTodos)); // array
       }
     })
   }

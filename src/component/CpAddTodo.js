@@ -8,7 +8,7 @@ class CpAddTodo extends Component {
   }
 
   render() {
-    const { dispatch, onClickAddTodo, onInitTextInput, onSetText, todoText } = this.props;
+    const { dispatch, onClickAddTodo, onInitTextInput, onSetText } = this.props;
     return (
       <View style={{flex: 1, backgroundColor: 'powderblue', flexDirection: 'row'}}>
         <TextInput
@@ -18,7 +18,7 @@ class CpAddTodo extends Component {
         <TouchableOpacity
           activeOpacity={1}
           style={ styles.buttonPress }
-          onPress={() => {onClickAddTodo(todoText); onInitTextInput()}}
+          onPress={() => {onClickAddTodo("bbb");}}
         >
           <Text style={ styles.welcomePress }>push me</Text>
         </TouchableOpacity>
