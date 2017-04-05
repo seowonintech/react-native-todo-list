@@ -37,7 +37,7 @@ class CpShowTodoList extends Component {
     
     return showTodoList.map((todo) => {
       return (
-        <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center'}} key={todo.key}>
+        <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center' }} key={todo.key}>
           <TextInput
             style={styles.textInput}
             value={todo.text}

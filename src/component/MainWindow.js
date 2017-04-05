@@ -16,7 +16,7 @@ class MainWindow extends Component {
 
     let dbRef = database.ref("todo");
     dbRef.on('value', (snapshot) => {
-      
+
       if (snapshot.val() != undefined) {
         var arrayOfTodos = Object.keys(snapshot.val()).map(key => {
           return {
@@ -25,6 +25,7 @@ class MainWindow extends Component {
             complete: snapshot.val()[key].complete,
           };
         });
+        // console.warn('[KangLOG] arrayOfTodos : ' + JSON.stringify(arrayOfTodos));
         dispatch(refreshList(arrayOfTodos)); // array
       }
     })

@@ -27,12 +27,6 @@ const pushMiddleware = store => next => action => {
     return next(action);
 }
 
-// const logger2 = store => next => action => {
-//   let result = next(action);
-//   console.warn('second next state', store.getState());  
-//   return result;
-// }
-
 const store = createStore(reducer, applyMiddleware(pushMiddleware));
 // const store = createStore(reducer);
 var database = firebase.database();
