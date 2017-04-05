@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import App from './container/CtSetDBToApp';
+import * as actions from './action/action'
 import * as firebase from 'firebase';
 
 var config = {
@@ -15,14 +16,16 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// const logger = store => next => action => {
-//   console.group(action.type);
-//   console.info('dispatching', action);
-//   let result = next(action);
-//   console.warn('next state', store.getState());
-//   console.groupEnd(action.type);
-//   return result;
-// }
+const pushMiddleware = store => next => action => {
+    if (action.type == actions.ADD_TODO){        
+        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
+        dbRef.push({
+            text: action.text,
+            complete: false,
+        });
+    }
+    return next(action);
+}
 
 // const logger2 = store => next => action => {
 //   let result = next(action);
@@ -30,8 +33,8 @@ firebase.initializeApp(config);
 //   return result;
 // }
 
-// const store = createStore(reducer, applyMiddleware(logger, logger2));
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(pushMiddleware));
+// const store = createStore(reducer);
 var database = firebase.database();
 
 class TodoApp extends Component {

@@ -14,7 +14,7 @@ class MainWindow extends Component {
     const { dispatch, database } = this.props;
     dispatch(setDatabaseRef(database));
 
-    let dbRef = database.ref();
+    let dbRef = database.ref("todo");
     dbRef.on('value', (snapshot) => {
       
       if (snapshot.val() != undefined) {

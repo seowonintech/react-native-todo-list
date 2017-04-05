@@ -19,13 +19,7 @@ class CpAddTodo extends Component {
         <TouchableOpacity
           activeOpacity={1}
           style={styles.buttonPress}
-          onPress={() => {
-            var database = dbRef.database.ref()
-            database.push({
-              text: todoText,
-              complete: false,
-            });
-          }}
+          onPress={() => onClickAddTodo(todoText)}
         >
           <Text style={styles.welcomePress}>push me</Text>
         </TouchableOpacity>
