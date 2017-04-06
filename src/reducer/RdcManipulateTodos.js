@@ -17,40 +17,15 @@ const RdcManipulateTodos = (state = {}, action) => {
     
     // You are not supposed to use any functions in reducer??
     case actions.ADD_TODO:
-      // dbRef = state.database.ref();
-      // console.warn('[KangLOG] action.text : ' + action.text);
-      // dbRef.push({
-      //   text: action.text,
-      //   complete: false,
-      // });
       return state;
 
     case actions.DELETE_TODO:
       return state;
 
     case actions.TOGGLE_TODO:
-    // return state.map(t => {
-    //   if (t.id === action.id){
-    //     return {
-    //       ...t,
-    //       complete: !t.complete
-    //     }
-    //   }
-    //   return t;
-    // });
       return state;
 
     case actions.MODIFY_TODO_TEXT:
-    // return state.map(t => {
-    //   if (t.id === action.id){          
-    //     var temp = {            
-    //       ...t,
-    //       text: action.text
-    //     }
-    //     return temp;
-    //   }
-    //   return t;
-    // });
       return state;
   }
   return state;

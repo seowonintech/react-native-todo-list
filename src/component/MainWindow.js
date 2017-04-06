@@ -16,13 +16,13 @@ class MainWindow extends Component {
 
     let dbRef = database.ref("todo");
     dbRef.on('value', (snapshot) => {
-
       if (snapshot.val() != undefined) {
         var arrayOfTodos = Object.keys(snapshot.val()).map(key => {
+          var item = snapshot.val()[key];
           return {
             key,
-            text: snapshot.val()[key].text,
-            complete: snapshot.val()[key].complete,
+            text: item.text,
+            complete: item.complete,
           };
         });
         // console.warn('[KangLOG] arrayOfTodos : ' + JSON.stringify(arrayOfTodos));

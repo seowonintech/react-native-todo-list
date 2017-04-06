@@ -33,15 +33,28 @@ class CpShowTodoList extends Component {
   }
 
   showList() {
-    const { showTodoList } = this.props;
-    
+    const { showTodoList, toggleTodo, deleteTodo } = this.props;
+
     return showTodoList.map((todo) => {
       return (
         <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center' }} key={todo.key}>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => toggleTodo(todo.key)}
+          >
+            <RadioButton selected={todo.complete} />
+          </TouchableOpacity>
           <TextInput
             style={styles.textInput}
             value={todo.text}
           />
+          <TouchableOpacity
+            activeOpacity={1}
+            style={style.buttonPress}
+            onPress={() => deleteTodo(todo.key)}
+          >
+            <Text style={styles.welcomePress}>Delete</Text>
+          </TouchableOpacity>
         </View>
       )
     });

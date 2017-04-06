@@ -9,6 +9,12 @@ const mapStateToProps = (state) => ({
   showTodoList: state.RdcFirebaseController,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  deleteTodo: (key) => dispatch(deleteTodo(key)),
+  toggleTodo: (key) => dispatch(toggleTodo(key)),
+  onModifyTodoText: (key, text) => dispatch(modifyTodoText(key, text)),
+})
+
 const CtTodoList = connect(
   mapStateToProps,
 )(CpShowTodoList);

@@ -23,11 +23,21 @@ const pushMiddleware = store => next => action => {
             text: action.text,
             complete: false,
         });
+        return next(action);
     }
-    return next(action);
 }
 
-const store = createStore(reducer, applyMiddleware(pushMiddleware));
+const updateMiddleware = store => next => action => {
+    if (action.type == actions.TOGGLE_TODO){
+    }
+
+    if (action.type == actions.MODIFY_TODO_TEXT){
+    }
+}
+
+const store = createStore(reducer, applyMiddleware(
+    pushMiddleware
+    ));
 // const store = createStore(reducer);
 var database = firebase.database();
 
