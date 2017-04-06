@@ -2,6 +2,8 @@ import * as ActionTypes from '../actions/ActionTypes';
 import configFirebase from './configFirebase';
 import firebase from 'firebase';
 
+// git reset test 
+
 let sampleTodos = [
     {
         id: 0,
