@@ -2,6 +2,7 @@ import * as actions from '../action/action';
 
 const RdcManipulateTodos = (state = {}, action) => {
   let dbRef;
+  
   switch (action.type) {
     // the action parameter
     // should be same as the returned values from action functions
@@ -10,7 +11,8 @@ const RdcManipulateTodos = (state = {}, action) => {
 
     // Init database object
     // and key array
-    case actions.SET_DATABASE_REF:       
+    case actions.SET_DATABASE_REF:
+      console.warn('[KangLOG] Initially store database object : ');
       return {
         database: action.database,
       };

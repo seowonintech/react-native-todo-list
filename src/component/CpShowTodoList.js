@@ -40,7 +40,7 @@ class CpShowTodoList extends Component {
         <View style={{ height: 30, backgroundColor: 'aquamarine', flexDirection: 'row', alignItems: 'center' }} key={todo.key}>
           <TouchableOpacity
             activeOpacity={1}
-            onPress={() => toggleTodo(todo.key)}
+            onPress={() => toggleTodo(todo)}
           >
             <RadioButton selected={todo.complete} />
           </TouchableOpacity>
@@ -50,8 +50,8 @@ class CpShowTodoList extends Component {
           />
           <TouchableOpacity
             activeOpacity={1}
-            style={style.buttonPress}
-            onPress={() => deleteTodo(todo.key)}
+            style={styles.buttonPress}
+            onPress={() => deleteTodo(todo)}
           >
             <Text style={styles.welcomePress}>Delete</Text>
           </TouchableOpacity>

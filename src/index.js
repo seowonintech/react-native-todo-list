@@ -11,33 +11,46 @@ var config = {
     apiKey: "AIzaSyBOz3euXj8nTuyHFW7FK6jbZXP_3FqwV8U",
     authDomain: "react-todos-e69e3.firebaseapp.com",
     databaseURL: "https://react-todos-e69e3.firebaseio.com",
+    projectId: "react-todos-e69e3",
     storageBucket: "react-todos-e69e3.appspot.com",
     messagingSenderId: "575260721031"
 };
 firebase.initializeApp(config);
 
 const pushMiddleware = store => next => action => {
-    if (action.type == actions.ADD_TODO){        
+    if (action.type == actions.ADD_TODO) {
         var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
         dbRef.push({
             text: action.text,
             complete: false,
         });
-        return next(action);
     }
+    return next(action);
 }
 
 const updateMiddleware = store => next => action => {
-    if (action.type == actions.TOGGLE_TODO){
+    if (action.type == actions.TOGGLE_TODO) {
+        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
+        var childRef = dbRef.child(action.todo.key);
+        childRef.update({
+            complete: !action.todo.complete,
+        });
     }
 
-    if (action.type == actions.MODIFY_TODO_TEXT){
+    if (action.type == actions.MODIFY_TODO_TEXT) {
+        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
+        var childRef = dbRef.child(action.todo.key);
+        childRef.update({
+            text: action.todo.text,
+        });
     }
+    return next(action);
 }
 
 const store = createStore(reducer, applyMiddleware(
-    pushMiddleware
-    ));
+    pushMiddleware,
+    updateMiddleware
+));
 // const store = createStore(reducer);
 var database = firebase.database();
 

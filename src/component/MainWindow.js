@@ -12,6 +12,7 @@ class MainWindow extends Component {
 
   componentDidMount() {
     const { dispatch, database } = this.props;
+    console.warn('[KangLOG] Component did mount!! : ');
     dispatch(setDatabaseRef(database));
 
     let dbRef = database.ref("todo");

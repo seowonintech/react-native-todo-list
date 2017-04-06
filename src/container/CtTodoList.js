@@ -10,13 +10,14 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteTodo: (key) => dispatch(deleteTodo(key)),
-  toggleTodo: (key) => dispatch(toggleTodo(key)),
+  deleteTodo: (todo) => dispatch(deleteTodo(todo)),
+  toggleTodo: (todo) => dispatch(toggleTodo(todo)),
   onModifyTodoText: (key, text) => dispatch(modifyTodoText(key, text)),
 })
 
 const CtTodoList = connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(CpShowTodoList);
 
 export default CtTodoList;

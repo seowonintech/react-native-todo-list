@@ -6,14 +6,14 @@ export const addTodo = (text) => ({
     text
 })
 
-export const deleteTodo = (key) => ({
+export const deleteTodo = (todo) => ({
     type: action.DELETE_TODO,
-    key
+    todo
 })
 
-export const toggleTodo = (key) => ({
+export const toggleTodo = (todo) => ({
     type: action.TOGGLE_TODO,
-    key
+    todo
 })
 
 export const setTodoText = (text) => ({
