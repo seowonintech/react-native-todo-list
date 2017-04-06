@@ -4,7 +4,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import App from './container/CtSetDBToApp';
-// import { COLOR, ThemeProvider } from 'react-native-material-ui';
 
 import * as firebase from 'firebase';
 

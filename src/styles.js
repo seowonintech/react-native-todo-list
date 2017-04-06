@@ -1,17 +1,42 @@
 import { StyleSheet } from 'react-native';
+import { MKButton, MKColor } from 'react-native-material-kit';
 
 export default styles = StyleSheet.create({
+    scrollView: {
+    flex: 1,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  col: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginLeft: 7, marginRight: 7,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginTop: 10, marginBottom: 20,
+  },
+  legendLabel: {
+    textAlign: 'center',
+    color: '#666666',
+    marginTop: 10, marginBottom: 20,
+    fontSize: 12,
+    fontWeight: '300',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
     flexDirection: 'row',
-  },
-  welcome: {
-    textAlign: 'center',
-    margin: 10,
-    color: '#000066'
   },
   welcomePress: {
     textAlign: 'center',

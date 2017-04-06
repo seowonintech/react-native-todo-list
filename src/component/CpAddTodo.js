@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
-import styles from '../styles'
+import { Text, View, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import styles from '../styles';
+import {
+  Button,
+  SearchBar
+} from 'react-native-elements';
 
 class CpAddTodo extends Component {
   constructor(props) {
@@ -10,19 +14,22 @@ class CpAddTodo extends Component {
   render() {
     const { onClickAddTodo, onInitTextInput, onSetText, todoText, dbRef } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: 'powderblue', flexDirection: 'row' }}>
-        <TextInput
-          style={{ flex: 1, borderColor: 'gray', borderWidth: 2, textAlign: 'center' }}
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <SearchBar
+          noIcon
+          round
+          containerStyle={{flex: 1, backgroundColor: 'white', borderTopWidth: 0, borderBottomWidth: 0}}
           onChangeText={text => onSetText(text)}
           onFocus={() => onInitTextInput()}
-        />
-        <TouchableOpacity
-          activeOpacity={1}
-          style={styles.buttonPress}
+          placeholder='Type Here...' />
+        <Button
+          raised
+          icon={{ name: 'cached' }}
+          backgroundColor='#397af8'
+          borderRadius={30}
+          buttonStyle={{height: 30}}
           onPress={() => onClickAddTodo(todoText)}
-        >
-          <Text style={styles.welcomePress}>push me</Text>
-        </TouchableOpacity>
+          title='Add' />
       </View>
     );
   }

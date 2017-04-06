@@ -19,11 +19,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo/vector-icons": "^4.0.0",
     "expo": "14.0.2",
     "firebase": "^3.7.2",
     "react": "~15.4.0",
     "react-native": "0.41.2",
+    "react-native-elements": "^0.10.3",
+    "react-native-material-kit": "^0.4.1",
     "react-native-material-ui": "^1.8.0",
+    "react-native-vector-icons": "^4.0.1",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0"
   }
