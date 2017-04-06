@@ -25,9 +25,9 @@ export const initTodo = () => ({
     type: action.INIT_TODO_TEXT,    
 })
 
-export const modifyTodoText = (key, text) => ({
+export const modifyTodoText = (todo, text) => ({
     type: action.MODIFY_TODO_TEXT,
-    key,
+    todo,
     text
 })
 
@@ -39,4 +39,10 @@ export const setDatabaseRef = (dbRef) => ({
 export const refreshList = (todos) => ({
     type: action.REFRESH_TODO_LIST,
     todos,
+})
+
+export const temporarilyChangeTodoText = (todo, text) => ({
+    type: action.TEMPORARILY_CHANGE_TODO_TEXT,
+    todo,
+    text
 })

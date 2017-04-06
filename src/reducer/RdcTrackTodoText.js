@@ -12,7 +12,7 @@ const RdcTrackTodoText = (state = initState, action) => {
       return action.text;
     
     case actions.INIT_TODO_TEXT:
-      return "";
+      return "";  
   }
   return state;
 }

@@ -33,7 +33,7 @@ class CpShowTodoList extends Component {
   }
 
   showList() {
-    const { showTodoList, toggleTodo, deleteTodo } = this.props;
+    const { showTodoList, toggleTodo, deleteTodo, onModifyTodoText, onTemporarilyChangeText } = this.props;
 
     return showTodoList.map((todo) => {
       return (
@@ -47,7 +47,10 @@ class CpShowTodoList extends Component {
           <TextInput
             style={styles.textInput}
             value={todo.text}
-          />
+            onChangeText={(text) => onTemporarilyChangeText(todo, text)}
+            onEndEditing={(text) => onModifyTodoText(todo, text)}
+            returnKeyType="done"
+          />                      
           <TouchableOpacity
             activeOpacity={1}
             style={styles.buttonPress}

@@ -27,7 +27,7 @@ class MainWindow extends Component {
         });
         dispatch(refreshList(arrayOfTodos)); // array
       }
-      else { // When there is no data. Completely delete all items!
+      else { // When there is no data. When completely delete all items!
         dispatch(refreshList([]));
       }
     })

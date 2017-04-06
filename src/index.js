@@ -38,6 +38,7 @@ const updateMiddleware = store => next => action => {
     }
 
     if (action.type == actions.MODIFY_TODO_TEXT) {
+        console.warn('[KangLOG] Modify text!: ');
         var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
         var childRef = dbRef.child(action.todo.key);
         childRef.update({

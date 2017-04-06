@@ -11,6 +11,17 @@ const RdcFirebaseController = (state = [], action) => {
     // Show the todo list   
     case actions.REFRESH_TODO_LIST:
       return action.todos;
+
+    case actions.TEMPORARILY_CHANGE_TODO_TEXT:
+      return state.map(todo => {
+        if (todo.key == action.todo.key){
+          return {
+            ...todo,
+            text: action.text
+          }
+        }
+        return todo;
+      })
   }
   return state;
 }

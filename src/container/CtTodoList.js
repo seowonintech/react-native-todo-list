@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import CpShowTodoList from '../component/CpShowTodoList'
-import { deleteTodo, toggleTodo, modifyTodoText } from '../action'
+import { deleteTodo, toggleTodo, modifyTodoText, temporarilyChangeTodoText } from '../action'
 
 // todoElements include database object and keys.
 // todoElements will be needed when delete, toggle or complete todo.
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   deleteTodo: (todo) => dispatch(deleteTodo(todo)),
   toggleTodo: (todo) => dispatch(toggleTodo(todo)),
-  onModifyTodoText: (key, text) => dispatch(modifyTodoText(key, text)),
+  onModifyTodoText: (todo, text) => dispatch(modifyTodoText(todo, text)),
+  onTemporarilyChangeText: (todo, text) => dispatch(temporarilyChangeTodoText(todo, text)),
 })
 
 const CtTodoList = connect(
