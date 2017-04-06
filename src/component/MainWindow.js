@@ -12,7 +12,6 @@ class MainWindow extends Component {
 
   componentDidMount() {
     const { dispatch, database } = this.props;
-    console.warn('[KangLOG] Component did mount!! : ');
     dispatch(setDatabaseRef(database));
 
     let dbRef = database.ref("todo");
@@ -26,7 +25,6 @@ class MainWindow extends Component {
             complete: item.complete,
           };
         });
-        // console.warn('[KangLOG] arrayOfTodos : ' + JSON.stringify(arrayOfTodos));
         dispatch(refreshList(arrayOfTodos)); // array
       }
       else { // When there is no data. Completely delete all items!

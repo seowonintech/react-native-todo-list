@@ -12,7 +12,6 @@ const RdcManipulateTodos = (state = {}, action) => {
     // Init database object
     // and key array
     case actions.SET_DATABASE_REF:
-      console.warn('[KangLOG] Initially store database object : ');
       return {
         database: action.database,
       };

@@ -8,3 +8,6 @@
 
 ## Firebase에서 마지막 item을 web console에서 삭제하였을 때
 - 마지막 항목을 삭제하였을 때 on() callback 함수가 호출되지 않는다.
+  - 해결방안 : 해당 부분은 메뉴얼에 나온다
+  - 데이터가 없는 경우 반환되는 스냅샷은 null입니다.
+  - [참고링크](https://firebase.google.com/docs/database/web/read-and-write?hl=ko#listen_for_value_events)
