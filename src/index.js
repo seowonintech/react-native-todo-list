@@ -47,9 +47,19 @@ const updateMiddleware = store => next => action => {
     return next(action);
 }
 
+const deleteMiddleware = store => next => action => {
+    if (action.type == actions.DELETE_TODO) {
+        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
+        var childRef = dbRef.child(action.todo.key);
+        childRef.remove();
+    }
+    return next(action);
+}
+
 const store = createStore(reducer, applyMiddleware(
     pushMiddleware,
-    updateMiddleware
+    updateMiddleware,
+    deleteMiddleware,
 ));
 // const store = createStore(reducer);
 var database = firebase.database();

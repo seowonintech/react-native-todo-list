@@ -29,6 +29,9 @@ class MainWindow extends Component {
         // console.warn('[KangLOG] arrayOfTodos : ' + JSON.stringify(arrayOfTodos));
         dispatch(refreshList(arrayOfTodos)); // array
       }
+      else { // When there is no data. Completely delete all items!
+        dispatch(refreshList([]));
+      }
     })
   }
 
