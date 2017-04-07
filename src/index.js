@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import App from './container/CtSetDBToApp';
+import TabBar from './component/TabBar';
 
 import * as firebase from 'firebase';
 
@@ -35,7 +36,10 @@ class TodoApp extends Component {
     render() {
         return (
             <Provider store={store}>
-                <App database={database} />
+                <View style={{flex: 1}}>
+                    <App database={database} />
+                    <TabBar />
+                </View>
             </Provider>
         );
     }
