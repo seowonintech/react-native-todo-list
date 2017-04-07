@@ -38,7 +38,7 @@ class TodoApp extends Component {
             <Provider store={store}>
                 <View style={{flex: 1}}>
                     <App database={database} />
-                    <TabBar />
+                    {/*<TabBar />*/}
                 </View>
             </Provider>
         );
