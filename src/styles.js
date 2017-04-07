@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { MKButton, MKColor } from 'react-native-material-kit';
 
 export default styles = StyleSheet.create({
     scrollView: {
@@ -35,7 +34,6 @@ export default styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
     flexDirection: 'row',
   },
   welcomePress: {

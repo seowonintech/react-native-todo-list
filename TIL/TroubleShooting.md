@@ -11,3 +11,9 @@
   - 해결방안 : 해당 부분은 메뉴얼에 나온다
   - 데이터가 없는 경우 반환되는 스냅샷은 null입니다.
   - [참고링크](https://firebase.google.com/docs/database/web/read-and-write?hl=ko#listen_for_value_events)
+
+## npm install 시에 도구 버전 2.0 에러 해결 방법
+- 아래 명령을 실행 (admin으로)
+  - npm install --global --production windows-build-tools
+  - npm config set msvs_version 2015 --global
+  - [참고링크](https://github.com/chjj/pty.js/issues/60)
