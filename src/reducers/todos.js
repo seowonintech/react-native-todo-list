@@ -64,7 +64,7 @@ const todo = (state = {}, action) => {
 const todos = (state = sampleTodoList, action) => {
     switch ( action.type ) {
         case ActionTypes.SET_TODOLIST:
-            return state;
+            return action.todoList;
         // case ActionTypes.ADD_TODO:
         //     return [
         //         ...state,

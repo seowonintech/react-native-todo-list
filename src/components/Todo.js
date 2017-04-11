@@ -23,10 +23,13 @@ class Todo extends Component {
     render() {
         const { todos, handleChangeText, handleCheckedRadioButton, handleDelete } = this.props;
 
-        console.log('[TS_LOG] Object.keys(todos) : ' + Object.keys(todos));
+        console.log('[TS_LOG] 123Object.keys(todos) : ' + Object.keys(todos));
         console.log('[TS_LOG] typeof todos : ' + typeof Object.keys(todos));
         console.log('[TS_LOG] todos : ' + JSON.stringify(todos));
-        console.log('[TS_LOG] arrayTodos : ' + arrayTodos);
+
+        // let arrayTodos = Object.entries(todos);
+        let arrayTodos = Object.keys(todos).map(key => todos[key]);
+        console.log('[TS_LOG] ### arrayTodos : ' + JSON.stringify(arrayTodos));
         return (
             <ScrollView 
                 style={{
@@ -39,6 +42,45 @@ class Todo extends Component {
                     alignItems: 'center',
                 }}
             >
+                {arrayTodos.map((todo, index) => (
+                    <View
+                        style={{
+                            flex: 1,
+                            flexDirection: 'row',
+                            backgroundColor: 'skyblue',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                        key={index}
+                    >
+                        <TouchableOpacity 
+                            onPress={() => handleCheckedRadioButton(todo.id)}
+                        >
+                            <RadioButton complete={todo.complete} />
+                        </TouchableOpacity>
+                        <View style={{flex: 1}}>
+                            <TextInput
+                                style={{
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    borderColor: 'gray',
+                                    borderWidth: 1,
+                                    height: 30,
+                                    flex: 1,
+                                }}
+                                value={todo.text}
+                                onChangeText={text => {
+                                    handleChangeText(index, text);
+                                }}
+                            />
+                        </View>
+                        <TouchableOpacity 
+                            onPress={() => handleDelete(todo.id)}
+                        >
+                            <Button />
+                        </TouchableOpacity>
+                    </View>
+                ))}
             </ScrollView>
         );
     }
