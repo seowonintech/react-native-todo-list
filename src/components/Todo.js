@@ -23,7 +23,14 @@ class Todo extends Component {
         const { todos, handleChangeText, handleCheckedRadioButton, handleDelete } = this.props;
 
         // let arrayTodos = Object.entries(todos);
-        let arrayTodos = Object.keys(todos).map(key => todos[key]);
+        console.log('[TS_LOG] Object.keys(todos) : ' + Object.keys(todos));
+        let arrayTodos = Object.keys(todos).map(key => {
+            // return todos[key]; // {key: value, text: aaaa, complete: false}
+            return {
+                id: key,
+                ...todos[key],
+            };
+        });
         return (
             <ScrollView 
                 style={{
@@ -69,7 +76,7 @@ class Todo extends Component {
                             />
                         </View>
                         <TouchableOpacity 
-                            onPress={() => handleDelete(todo.id)}
+                            onPress={() => firebaseDB.ref(todo.id).remove()}
                         >
                             <Button />
                         </TouchableOpacity>

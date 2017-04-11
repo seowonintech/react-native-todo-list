@@ -31,10 +31,11 @@ let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText, hand
             onPress={ () => {
                 if ( !mainState.textInputValue.trim() ) return;
                 {/*onClickAddButton(mainState.textInputValue);*/}
-                firebaseDB.ref().push({
+                let key = firebaseDB.ref().push({
                     complete: false,
                     text: mainState.textInputValue,
-                });
+                }).key;
+                console.log('[TS_LOG] key : ' + key);
                 onInitText();
             }}
         />
