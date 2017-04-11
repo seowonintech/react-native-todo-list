@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 // Custom
 import Todo from '../components/Todo';
-import { modifyTodo, completeTodo, deleteTodo } from '../actions';
+import { modifyTodo, completeTodo, deleteTodo, setTodoList } from '../actions';
 
 // const TodoList = ({ todos }) => (
 //    <Text>{ todos }123</Text>
@@ -25,6 +25,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
     handleDelete: (id) => {
         dispatch(deleteTodo(id))
+    },
+    handleChangeDatabase: (todoList) => {
+        dispatch(setTodoList((todoList)))
+        console.log('[TS_LOG] todoList : ' + JSON.stringify(todoList));
     },
 });
 

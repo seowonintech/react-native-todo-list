@@ -32,3 +32,8 @@ export const completeTodo = (id) => ({
     type: ActionTypes.COMPLETE_TODO,
     id
 });
+
+export const setTodoList = (todoList) => ({
+    type: ActionTypes.SET_TODOLIST,
+    todoList
+});

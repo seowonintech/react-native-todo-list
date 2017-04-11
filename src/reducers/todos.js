@@ -1,24 +1,33 @@
 import * as ActionTypes from '../actions/ActionTypes';
 
-let sampleTodos = [
-    {
-        id: 0,
-        complete: false,
-        text: "eat"
-    },
-    {
-        id: 1,
-        complete: false,
-        text: "play"
-    },
-    {
-        id: 2,
-        complete: false,
-        text: "love"
-    },
-];
+// let sampleTodos = [
+//     {
+//         id: 0,
+//         complete: false,
+//         text: "eat"
+//     },
+//     {
+//         id: 1,
+//         complete: false,
+//         text: "play"
+//     },
+//     {
+//         id: 2,
+//         complete: false,
+//         text: "love"
+//     },
+// ];
 
-let firebaseDatebase = [];
+let sampleTodoList = {
+    hash1: {
+        complete: false,
+        text: "text1",
+    },
+    hash2: {
+        complete: true,
+        text: "text2",
+    },
+};
 
 const todo = (state = {}, action) => {
     switch (action.type) {
@@ -52,8 +61,10 @@ const todo = (state = {}, action) => {
     }
 };
 
-const todos = (state = {}, action) => {
+const todos = (state = sampleTodoList, action) => {
     switch ( action.type ) {
+        case ActionTypes.SET_TODOLIST:
+            return state;
         // case ActionTypes.ADD_TODO:
         //     return [
         //         ...state,
@@ -91,6 +102,7 @@ const todos = (state = {}, action) => {
         //         return val;
         //     });
         default:
+            console.log('[TS_LOG] state : ' + state);
             return state;
     }
 };
