@@ -1,4 +1,6 @@
 import * as ActionTypes from '../actions/ActionTypes';
+// Firebase
+import firebaseDB from '../core/firebase';
 
 // let sampleTodos = [
 //     {
@@ -33,15 +35,11 @@ const todo = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO:
             // configFirebase.database().ref('/todo').set(action.text);
-            firebase.database().ref().push({
+            firebaseDB.ref().push({
                 complete: false,
                 text: action.text,
             });
-            return {
-                id: action.id++,
-                complete: false,
-                text: action.text,
-            };
+            return;
         case ActionTypes.MODIFY_TODO:
             return {
                 id: action.id,
@@ -65,15 +63,15 @@ const todos = (state = sampleTodoList, action) => {
     switch ( action.type ) {
         case ActionTypes.SET_TODOLIST:
             return action.todoList;
-        // case ActionTypes.ADD_TODO:
-        //     return [
-        //         ...state,
-        //         todo(undefined, action) // 왜 첫번째 인수가 undefined인가? 안쓴다고 undefined?
-        //         // {
-        //         //     id: action.id,
-        //         //     text: action.text
-        //         // }
-        //     ];
+        case ActionTypes.ADD_TODO:
+            todo(undefined, action);
+            return;
+            // 왜 첫번째 인수가 undefined인가? 
+            // => 안 쓸때, null이나 undefined로 처리함.
+                // {
+                //     id: action.id,
+                //     text: action.text
+                // }
         // case ActionTypes.MODIFY_TODO:
         // {
         //     return state.map((val) => {
@@ -102,7 +100,6 @@ const todos = (state = sampleTodoList, action) => {
         //         return val;
         //     });
         default:
-            console.log('[TS_LOG] state : ' + state);
             return state;
     }
 };

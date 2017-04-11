@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 // Custom
 import * as ActionTypes from '../actions/ActionTypes';
 import { addTodo, initTodo, setText } from '../actions';
+// Firebase
+import { firebaseDB } from '../core/firebase';
 
 const styles = {
     KeyboardAvoidingView: {
@@ -28,7 +30,11 @@ let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText, hand
             title="Add"
             onPress={ () => {
                 if ( !mainState.textInputValue.trim() ) return;
-                onClickAddButton(mainState.textInputValue);
+                {/*onClickAddButton(mainState.textInputValue);*/}
+                firebaseDB.ref().push({
+                    complete: false,
+                    text: mainState.textInputValue,
+                });
                 onInitText();
             }}
         />

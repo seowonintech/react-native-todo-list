@@ -28,7 +28,6 @@ const mapDispatchToProps = (dispatch) => ({
     },
     handleChangeDatabase: (todoList) => {
         dispatch(setTodoList((todoList)))
-        console.log('[TS_LOG] todoList : ' + JSON.stringify(todoList));
     },
 });
 

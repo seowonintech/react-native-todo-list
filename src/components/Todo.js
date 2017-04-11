@@ -14,7 +14,6 @@ class Todo extends Component {
         const { handleChangeDatabase } = this.props;
 
         let todoTest = firebaseDB.ref().on('value', (snapshot) => {
-            console.log('[TS_LOG] snapshot : ' + JSON.stringify(snapshot.val()));
             let firebaseTodoList = snapshot.val();
             handleChangeDatabase(firebaseTodoList);
         });
@@ -23,13 +22,8 @@ class Todo extends Component {
     render() {
         const { todos, handleChangeText, handleCheckedRadioButton, handleDelete } = this.props;
 
-        console.log('[TS_LOG] 123Object.keys(todos) : ' + Object.keys(todos));
-        console.log('[TS_LOG] typeof todos : ' + typeof Object.keys(todos));
-        console.log('[TS_LOG] todos : ' + JSON.stringify(todos));
-
         // let arrayTodos = Object.entries(todos);
         let arrayTodos = Object.keys(todos).map(key => todos[key]);
-        console.log('[TS_LOG] ### arrayTodos : ' + JSON.stringify(arrayTodos));
         return (
             <ScrollView 
                 style={{
