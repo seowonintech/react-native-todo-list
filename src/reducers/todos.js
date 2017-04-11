@@ -22,20 +22,14 @@ let sampleTodos = [
     },
 ];
 
-let todoTest = firebase.database().ref('/todos').once('value').then((snapshot) => {
-    console.log('[TS_LOG] snapshot : ' + JSON.stringify(snapshot.val()));
-    sampleTodos = snapshot.val();
-    console.log('[TS_LOG] snapshot.val().complete : ' + snapshot.val().complete);
-});
-
 const todo = (state = {}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_TODO:
             // configFirebase.database().ref('/todo').set(action.text);
-            firebase.database().ref(action.id).set({
-                complete: false,
-                text: action.text,
-            });
+            // firebase.database().ref(action.id).set({
+            //     complete: false,
+            //     text: action.text,
+            // });
             return {
                 id: action.id++,
                 complete: false,
