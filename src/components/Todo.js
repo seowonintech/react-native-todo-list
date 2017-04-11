@@ -1,60 +1,41 @@
 import React, { Component } from 'react';
 import { TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+// Firebase
+import { firebaseApp, firebaseDB } from '../core/firebase';
 // Custom
 import { RadioButton, Button } from '../lib/taesu-react-native';
 
-const Todo = ({ todos, handleChangeText, handleCheckedRadioButton, handleDelete }) => (
-    <ScrollView style={{
-            flex: 1,
-            flexDirection: 'column',
-            backgroundColor: 'skyblue',
-            
-        }}
-        contentContainerStyle={{
-            justifyContent: 'center',
-            alignItems: 'center',
-        }}
-    >
-        {todos.map((todo, index) => (
-            <View
+
+let todoTest = firebaseDB.ref().on('value', (snapshot) => {
+    console.log('[TS_LOG] snapshot : ' + JSON.stringify(snapshot.val()));
+    let sampleTodos = snapshot.val();
+    console.log('[TS_LOG] JSON.stringify(sampleTodos) : ' + JSON.stringify(sampleTodos));
+    firebaseDatebase = JSON.stringify(sampleTodos);
+});
+
+class Todo extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const { todos, handleChangeText, handleCheckedRadioButton, handleDelete } = this.props;
+        return (
+            <ScrollView 
                 style={{
                     flex: 1,
-                    flexDirection: 'row',
+                    flexDirection: 'column',
                     backgroundColor: 'skyblue',
+                }}
+                contentContainerStyle={{
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
-                key={index}
             >
-                <TouchableOpacity 
-                    onPress={() => handleCheckedRadioButton(todo.id)}
-                >
-                    <RadioButton complete={todo.complete} />
-                </TouchableOpacity>
-                <View style={{flex: 1}}>
-                    <TextInput
-                        style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderColor: 'gray',
-                            borderWidth: 1,
-                            height: 30,
-                            flex: 1,
-                        }}
-                        value={todo.text}
-                        onChangeText={text => {
-                            handleChangeText(index, text);
-                        }}
-                    />
-                </View>
-                <TouchableOpacity 
-                    onPress={() => handleDelete(todo.id)}
-                >
-                    <Button />
-                </TouchableOpacity>
-            </View>
-        ))}
-    </ScrollView>
-);
+                
+            </ScrollView>
+        );
+    }
+}
 
 export default Todo;

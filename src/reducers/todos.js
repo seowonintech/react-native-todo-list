@@ -1,8 +1,4 @@
 import * as ActionTypes from '../actions/ActionTypes';
-import configFirebase from './configFirebase';
-import firebase from 'firebase';
-
-// git reset test 
 
 let sampleTodos = [
     {
@@ -23,13 +19,6 @@ let sampleTodos = [
 ];
 
 let firebaseDatebase = [];
-
-let todoTest = firebase.database().ref().once('value').then((snapshot) => {
-    console.log('[TS_LOG] snapshot : ' + JSON.stringify(snapshot.val()));
-    sampleTodos = snapshot.val();
-    console.log('[TS_LOG] JSON.stringify(sampleTodos) : ' + JSON.stringify(sampleTodos));
-    firebaseDatebase = JSON.stringify(sampleTodos);
-});
 
 const todo = (state = {}, action) => {
     switch (action.type) {
@@ -63,44 +52,44 @@ const todo = (state = {}, action) => {
     }
 };
 
-const todos = (state = firebaseDatebase, action) => {
+const todos = (state = {}, action) => {
     switch ( action.type ) {
-        case ActionTypes.ADD_TODO:
-            return [
-                ...state,
-                todo(undefined, action) // 왜 첫번째 인수가 undefined인가? 안쓴다고 undefined?
-                // {
-                //     id: action.id,
-                //     text: action.text
-                // }
-            ];
-        case ActionTypes.MODIFY_TODO:
-        {
-            return state.map((val) => {
-                if ( val.id === action.id ) {
-                    return {
-                        ...val,
-                        id: action.id,
-                        text: action.text
-                    }
-                }
-                return val;
-            });
-        }
+        // case ActionTypes.ADD_TODO:
+        //     return [
+        //         ...state,
+        //         todo(undefined, action) // 왜 첫번째 인수가 undefined인가? 안쓴다고 undefined?
+        //         // {
+        //         //     id: action.id,
+        //         //     text: action.text
+        //         // }
+        //     ];
+        // case ActionTypes.MODIFY_TODO:
+        // {
+        //     return state.map((val) => {
+        //         if ( val.id === action.id ) {
+        //             return {
+        //                 ...val,
+        //                 id: action.id,
+        //                 text: action.text
+        //             }
+        //         }
+        //         return val;
+        //     });
+        // }
             
-        case ActionTypes.DELETE_TODO:
-            return state.filter(val => val.id !== action.id);
-        case ActionTypes.COMPLETE_TODO:
-            return state.map((val) => {
-                if ( val.id === action.id ) {
-                    return {
-                        ...val,
-                        id: action.id,
-                        complete: !val.complete
-                    }
-                }
-                return val;
-            });
+        // case ActionTypes.DELETE_TODO:
+        //     return state.filter(val => val.id !== action.id);
+        // case ActionTypes.COMPLETE_TODO:
+        //     return state.map((val) => {
+        //         if ( val.id === action.id ) {
+        //             return {
+        //                 ...val,
+        //                 id: action.id,
+        //                 complete: !val.complete
+        //             }
+        //         }
+        //         return val;
+        //     });
         default:
             return state;
     }
