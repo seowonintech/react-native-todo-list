@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TodoApp from './src/'
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
