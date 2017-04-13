@@ -1,41 +1,37 @@
 import * as actions from '../action/action'
 
-export const pushMiddleware = store => next => action => {
-    if (action.type == actions.ADD_TODO) {
-        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
-        dbRef.push({
-            text: action.text,
-            complete: false,
-        });
-    }
-    return next(action);
-}
+export const FirebaseMiddleware = store => next => action => {
+    var dbRef;
+    var childRef;
 
-export const updateMiddleware = store => next => action => {
-    if (action.type == actions.TOGGLE_TODO) {
-        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
-        var childRef = dbRef.child(action.todo.key);
-        childRef.update({
-            complete: !action.todo.complete,
-        });
+    if (action != undefined) {
+        dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
+        childRef = dbRef.child(action.todo.key);
+    }
+    else {
+        return next(action);
     }
 
-    if (action.type == actions.MODIFY_TODO_TEXT) {
-        console.warn('[KangLOG] Modify text!: ');
-        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
-        var childRef = dbRef.child(action.todo.key);
-        childRef.update({
-            text: action.todo.text,
-        });
-    }
-    return next(action);
-}
+    switch (action.type) {
+        case actions.ADD_TODO:
+            dbRef.push({
+                text: action.text,
+                complete: false,
+            });
 
-export const deleteMiddleware = store => next => action => {
-    if (action.type == actions.DELETE_TODO) {
-        var dbRef = store.getState().RdcManipulateTodos.database.ref("todo");
-        var childRef = dbRef.child(action.todo.key);
-        childRef.remove();
+        case actions.TOGGLE_TODO:
+            childRef.update({
+                complete: !action.todo.complete,
+            });
+
+        case actions.DELETE_TODO:
+            childRef.remove();
+
+        case actions.MODIFY_TODO_TEXT:
+            childRef.update({
+                text: action.todo.text,
+            });
+
     }
     return next(action);
 }

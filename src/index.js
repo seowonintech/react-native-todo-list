@@ -8,9 +8,7 @@ import App from './container/CtSetDBToApp';
 import * as firebase from 'firebase';
 
 import {
-    pushMiddleware,
-    updateMiddleware,
-    deleteMiddleware
+    FirebaseMiddleware
 } from './middleware';
 
 var config = {
@@ -23,11 +21,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-const store = createStore(reducer, applyMiddleware(
-    pushMiddleware,
-    updateMiddleware,
-    deleteMiddleware,
-));
+const store = createStore(reducer, applyMiddleware(FirebaseMiddleware));
+
 // const store = createStore(reducer);
 var database = firebase.database();
 
