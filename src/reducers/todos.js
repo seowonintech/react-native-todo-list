@@ -20,14 +20,11 @@ import firebaseDB from '../core/firebase';
 //     },
 // ];
 
-let sampleTodoList = {
+let initTodoList = {
     hash1: {
+        id: 0,
         complete: false,
-        text: "text1",
-    },
-    hash2: {
-        complete: true,
-        text: "text2",
+        text: "",
     },
 };
 
@@ -59,10 +56,14 @@ const todo = (state = {}, action) => {
     }
 };
 
-const todos = (state = sampleTodoList, action) => {
+const todos = (state = initTodoList, action) => {
     switch ( action.type ) {
         case ActionTypes.SET_TODOLIST:
-            return action.todoList;
+            if ( action.todoList === null ) {
+                return initTodoList;
+            }
+            else
+                return action.todoList;
         case ActionTypes.ADD_TODO:
             todo(undefined, action);
             return;
