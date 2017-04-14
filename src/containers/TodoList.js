@@ -17,14 +17,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    handleChangeText: (id, text) => {
-        dispatch(modifyTodo(id, text))
-    },
     handleCheckedRadioButton: (id) => {
         dispatch(completeTodo(id))
-    },
-    handleDelete: (id) => {
-        dispatch(deleteTodo(id))
     },
     handleChangeDatabase: (todoList) => {
         dispatch(setTodoList((todoList)))

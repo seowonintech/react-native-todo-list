@@ -20,7 +20,7 @@ class Todo extends Component {
     }
 
     render() {
-        const { todos, handleChangeText, handleCheckedRadioButton, handleDelete } = this.props;
+        const { todos, handleCheckedRadioButton } = this.props;
 
         // let arrayTodos = Object.entries(todos);
         console.log('[TS_LOG] Object.keys(todos) : ' + Object.keys(todos));
@@ -71,7 +71,10 @@ class Todo extends Component {
                                 }}
                                 value={todo.text}
                                 onChangeText={text => {
-                                    handleChangeText(index, text);
+                                    firebaseDB.ref(todo.id).update({
+                                        ...todo,
+                                        text: text
+                                    });
                                 }}
                             />
                         </View>
