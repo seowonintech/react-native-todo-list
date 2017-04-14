@@ -19,7 +19,7 @@ const styles = {
     }
 };
 
-let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText, handleAuth }) => (
+let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText }) => (
     <KeyboardAvoidingView contentContainerStyle={styles.KeyboardAvoidingView} behavior='position'>
         <TextInput
             style={{flex: 1, borderColor: 'gray', borderWidth: 1}}
@@ -37,12 +37,6 @@ let AddTodo = ({ onClickAddButton, mainState, handleChangeText, onInitText, hand
                 }).key;
                 console.log('[TS_LOG] key : ' + key);
                 onInitText();
-            }}
-        />
-        <Button
-            title="Auth"
-            onPress={ () => {
-                handleAuth();
             }}
         />
     </KeyboardAvoidingView>
@@ -63,9 +57,6 @@ const dispatchToProps = (dispatch, ownProps) => ({
     },
     handleChangeText: (text) => {
         dispatch(setText(text));
-    },
-    handleAuth: () => {
-        dispatch(initTodo());
     },
 });
 
