@@ -20,7 +20,7 @@ class Todo extends Component {
     }
 
     render() {
-        const { todos, handleCheckedRadioButton } = this.props;
+        const { todos } = this.props;
 
         // let arrayTodos = Object.entries(todos);
         console.log('[TS_LOG] Object.keys(todos) : ' + Object.keys(todos));
@@ -55,7 +55,13 @@ class Todo extends Component {
                         key={index}
                     >
                         <TouchableOpacity 
-                            onPress={() => handleCheckedRadioButton(todo.id)}
+                            onPress={() => {
+                                    firebaseDB.ref(todo.id).update({
+                                        ...todo,
+                                        complete: !todo.complete
+                                    });
+                                }
+                            }
                         >
                             <RadioButton complete={todo.complete} />
                         </TouchableOpacity>

@@ -17,9 +17,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    handleCheckedRadioButton: (id) => {
-        dispatch(completeTodo(id))
-    },
     handleChangeDatabase: (todoList) => {
         dispatch(setTodoList((todoList)))
     },
