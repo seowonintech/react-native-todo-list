@@ -23,7 +23,9 @@ class Todo extends Component {
         const { todos } = this.props;
 
         // let arrayTodos = Object.entries(todos);
-        console.log('[TS_LOG] Object.keys(todos) : ' + Object.keys(todos));
+        if ( todos === null ) {
+            return <View />;
+        }
         let arrayTodos = Object.keys(todos).map(key => {
             // return todos[key]; // {key: value, text: aaaa, complete: false}
             return {
