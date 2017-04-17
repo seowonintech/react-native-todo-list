@@ -3,7 +3,9 @@ import { TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-nativ
 // Firebase
 import { firebaseDB } from '../core/firebase';
 // Custom
-import { RadioButton, Button } from '../lib/taesu-react-native';
+import { RadioButton } from '../lib/taesu-react-native';
+// Material Design
+import { Button } from 'react-native-elements';
 
 class Todo extends Component {
     constructor(props) {
@@ -89,7 +91,8 @@ class Todo extends Component {
                         <TouchableOpacity 
                             onPress={() => firebaseDB.ref(todo.id).remove()}
                         >
-                            <Button />
+                            <Button
+                                title="BUTTON" />
                         </TouchableOpacity>
                     </View>
                 ))}
