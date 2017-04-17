@@ -11,6 +11,11 @@ export const setText = (text) => ({
     text
 });
 
+export const setFilter = (filter) => ({
+    type: ActionTypes.SET_FILTER,
+    filter
+});
+
 export const modifyTodo = (id, text) => ({
     type: ActionTypes.MODIFY_TODO,
     id,

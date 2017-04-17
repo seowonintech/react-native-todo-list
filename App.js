@@ -5,9 +5,9 @@ import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView } from 'react-
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // Custom
-import TodoList from './src/containers/TodoList';
-import AddTodo from './src/containers/AddTodo';
 import reducers from './src/reducers';
+import { AddTodo, VisibilityFilter, TodoList } from './src/containers';
+import Filter from './src/components/Filter';
 
 const store = createStore(reducers);
 
@@ -16,6 +16,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <ScrollView style={styles.container}>
+            <Filter />
             <TodoList />
             <AddTodo />
         </ScrollView>
@@ -27,6 +28,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 20
     // backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
