@@ -8,14 +8,28 @@ class Filter extends Component {
         super(props);
 
         this.state = {
-            selectedIndex: 2
+            selectedIndex: 0
         }
-        this.updateIndex = this.updateIndex.bind(this)
+        // this.updateIndex = this.updateIndex.bind(this);
     }
-    updateIndex(selectedIndex) {
-        this.setState({ selectedIndex })
+    updateIndex = (selectedIndex) => {
+        const { handleFilter } = this.props;
+        this.setState({ selectedIndex });
+        handleFilter(this.filterSwitch(selectedIndex));
     }
 
+    filterSwitch = (index) => {
+        switch (index) {
+            case 0:
+                return 'ALL';
+            case 1:
+                return 'Active';
+            case 2:
+                return 'Completed';
+            default:
+                return 'ALL';
+        }
+    }
 
     render() {
 
@@ -25,6 +39,7 @@ class Filter extends Component {
             padding: 0,
         };
         const buttons = ['All', 'Active', 'Completed'];
+        const { filter } = this.props;
         const { selectedIndex } = this.state;
 
         return (

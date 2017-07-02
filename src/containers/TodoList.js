@@ -1,24 +1,20 @@
 // React
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 // Redux
 import { connect } from 'react-redux';
 // Custom
 import Todo from '../components/Todo';
 import { modifyTodo, completeTodo, deleteTodo, setTodoList } from '../actions';
 
-// const TodoList = ({ todos }) => (
-//    <Text>{ todos }123</Text>
-// );
-
 const mapStateToProps = (state) => ({
     todos: state.todos,
-    mainState: state.mainState
+    mainState: state.mainState,
+    filter: state.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
     handleChangeDatabase: (todoList) => {
-        dispatch(setTodoList((todoList)))
+        dispatch(setTodoList(todoList));
     },
 });
 

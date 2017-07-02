@@ -4,6 +4,7 @@ import { TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-nativ
 import { firebaseDB } from '../core/firebase';
 // Custom
 import { RadioButton } from '../lib/taesu-react-native';
+import * as ActionTypes from '../actions/ActionTypes';
 // Material Design
 import { Button, CheckBox, SearchBar, FormInput } from 'react-native-elements';
 
@@ -42,7 +43,7 @@ class Todo extends Component {
     }
 
     render() {
-        const { todos, mainState } = this.props;
+        const { todos, mainState, filter } = this.props;
 
         // let arrayTodos = Object.entries(todos);
         if ( todos === null ) {
@@ -55,6 +56,24 @@ class Todo extends Component {
                 ...todos[key],
             };
         });
+        console.log(`[TS_LOG] filter : ${filter}`);
+        let newArray;
+        if (filter === ActionTypes.FILTER_ACTIVE) {
+            newArray = arrayTodos.filter((val) => {
+                return val.complete === false;
+            });
+        }
+        else if (filter === ActionTypes.FILTER_COMPLETE) {
+            newArray = arrayTodos.filter((val) => {
+                return val.complete === true;
+            });
+        }
+        else {
+            newArray = arrayTodos
+        }
+        
+        console.log(newArray);
+        
         return (
             <ScrollView 
                 style={{
@@ -65,7 +84,7 @@ class Todo extends Component {
                     justifyContent: 'center',
                 }}
             >
-                {arrayTodos.map((todo, index) => (
+                {newArray.map((todo, index) => (
                     <View
                         style={{
                             flex: 1,

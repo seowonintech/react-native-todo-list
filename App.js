@@ -6,8 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // Custom
 import reducers from './src/reducers';
-import { AddTodo, VisibilityFilter, TodoList } from './src/containers';
-import Filter from './src/components/Filter';
+import { AddTodo, VisibilityFilter, TodoList, FilterList } from './src/containers';
 
 const store = createStore(reducers);
 
@@ -16,7 +15,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <ScrollView style={styles.container}>
-            <Filter />
+            <FilterList />
             <TodoList />
             <AddTodo />
         </ScrollView>

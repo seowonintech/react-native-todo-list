@@ -9,6 +9,12 @@
     has-color "^0.1.7"
     strip-ansi "^0.2.1"
 
+"@expo/vector-icons@^4.0.0":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-4.1.1.tgz#d9da106cde232254cccfc816f4f86cad2d6f1269"
+  dependencies:
+    react-native-vector-icons "4.1.1"
+
 "@exponent/json-file@^5.3.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@exponent/json-file/-/json-file-5.3.0.tgz#46d454a4f9e6a872f30654c45a28cfdc83e79c03"
@@ -2186,7 +2192,7 @@ fbjs-scripts@^0.7.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.4, fbjs@^0.8.5:
+fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.9:
   version "0.8.9"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.9.tgz#180247fbd347dcc9004517b904f865400a0c8f14"
   dependencies:
@@ -3544,7 +3550,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -4158,6 +4164,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.5.8:
+  version "15.5.10"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 proxy-addr@~1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.3.tgz#dc97502f5722e888467b3fa2297a7b1ff47df074"
@@ -4309,6 +4322,14 @@ react-native-tab-navigator@^0.3.3:
   resolved "https://registry.yarnpkg.com/react-native-tab-navigator/-/react-native-tab-navigator-0.3.3.tgz#b222bad21fbe773c8d28f9a0de30ce62b08724d3"
   dependencies:
     immutable "^3.8.1"
+
+react-native-vector-icons@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.1.1.tgz#9ac75bde77d9243346668c51dca7756775428087"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.8"
+    yargs "^6.3.0"
 
 react-native-vector-icons@^4.0.1:
   version "4.0.1"
