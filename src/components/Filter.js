@@ -1,3 +1,4 @@
+// React
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 // Material Design
@@ -12,7 +13,6 @@ class Filter extends Component {
         this.state = {
             selectedIndex: 0
         }
-        // this.updateIndex = this.updateIndex.bind(this);
     }
     updateIndex = (selectedIndex) => {
         const { handleFilter } = this.props;

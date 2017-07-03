@@ -56,7 +56,6 @@ class Todo extends Component {
                 ...todos[key],
             };
         });
-        console.log(`[TS_LOG] filter : ${filter}`);
         let newArray;
         if (filter === ActionTypes.FILTER_ACTIVE) {
             newArray = arrayTodos.filter((val) => {
@@ -71,8 +70,6 @@ class Todo extends Component {
         else {
             newArray = arrayTodos
         }
-        
-        console.log(newArray);
         
         return (
             <ScrollView 

@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // Custom
 import reducers from './src/reducers';
-import { AddTodo, VisibilityFilter, TodoList, FilterList } from './src/containers';
+import { AddTodo, TodoList, FilterList } from './src/containers';
 
 const store = createStore(reducers);
 
