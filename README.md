@@ -1,8 +1,6 @@
 # Example Image
 
-<p align="center">
-  <img src="img/sample.gif" alt="sample.gif" width="320" height="480" />
-</p>
+![img/sample.gif](/img/sample.gif)
 
 ## 작성방법
 
