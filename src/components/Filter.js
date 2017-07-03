@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 // Material Design
 import { ButtonGroup } from 'react-native-elements';
+// Custom
+import * as ActionTypes from '../actions/ActionTypes';
 
 class Filter extends Component {
     constructor(props) {
@@ -21,13 +23,13 @@ class Filter extends Component {
     filterSwitch = (index) => {
         switch (index) {
             case 0:
-                return 'ALL';
+                return ActionTypes.FILTER_ALL;
             case 1:
-                return 'Active';
+                return ActionTypes.FILTER_ACTIVE;
             case 2:
-                return 'Completed';
+                return ActionTypes.FILTER_COMPLETE;
             default:
-                return 'ALL';
+                return ActionTypes.FILTER_ALL;
         }
     }
 
